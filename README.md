@@ -1,6 +1,6 @@
 # About
 
-This project was made as a submission to [Boot.dev Personal Project]() --need link
+This project was made as a submission to [Boot.dev Personal Project](https://www.boot.dev/courses/build-personal-project-1)
 
 Pick options from a menu to battle enemies until theres none left.
 
