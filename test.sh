@@ -5,7 +5,7 @@ set -e
 
 tests() {
     local path="./tests"
-    # reset path if an argument is given
+    # reset path if argument is given
     if [[ $1 ]]; then
         path="$1"
     fi
@@ -19,7 +19,11 @@ tests() {
         exit 1
     fi
     
-    
+    # gets list of sub directories
+    local sub_dirs=$(ls "$path")
+    for item in "$sub_dirs"; do
+        printf "$item\n"
+    done
 
 }
 
