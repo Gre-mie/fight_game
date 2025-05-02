@@ -3,7 +3,7 @@
 # This script will exicute tests within the tests/ directory
 set -e
 
-tests() {
+tun_tests() {
     local path="./tests"
     # reset path if argument is given
     if [[ $1 ]]; then
@@ -20,11 +20,16 @@ tests() {
     fi
     
     # gets list of sub directories
+    # backs out of dir if no exicutable or dir
     local sub_dirs=$(ls "$path")
+    printf "${#sub_dirs}\n" # TODO: this doesn't seem right, need an exit condition
+
     for item in "$sub_dirs"; do
         printf "$item\n"
+        
     done
+    pwd 
 
 }
 
-tests "$1"
+tun_tests "$1"
