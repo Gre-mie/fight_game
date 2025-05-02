@@ -10,10 +10,11 @@ tests() {
     fi
 
     if [[ -e "$start" ]]; then
-        printf "file $start exists\n"                 # TODO: send success messege to log
+        printf "file $start exists\n"               # TODO: send success messege to log
     else
                                                     # TODO: send error messege to log (no colour)
-        trap "Error: $start cannot be found" EER    # TODO: Fix this and add colour to errors if possible
+        printf "Error: $start not found\n" >&2      # TODO: add colour to errors
+        exit 1
     fi
 
 }
