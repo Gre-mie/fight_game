@@ -11,16 +11,17 @@ run_tests() {
     if [[ $1 ]]; then
         path="$1"
     fi
-    is_path "$1"
+    is_path "$path"
     
-    # gets list of sub directories
-    # backs out of dir if no exicutable or dir
-    local sub_dirs=$(ls "$path")
-    printf "${#sub_dirs}\n" # TODO: this doesn't seem right, need an exit condition
+    local sub_dirs=($(ls "$path"))
 
-    for item in "$sub_dirs"; do
-        printf "$item\n"
-        
+    # 
+    for item in "${sub_dirs[@]}"; do
+        # detects items that start with "test"
+        if [[ $item =~ ^test ]]; then
+           printf "Valid: $item\n"
+        fi
+
     done
     
 
