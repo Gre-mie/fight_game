@@ -1,23 +1,17 @@
 #!/bin/bash
 
+. ./functs/paths/is_path.sh
+
 # This script will exicute tests within the tests/ directory
 set -e
 
-tun_tests() {
+run_tests() {
     local path="./tests"
     # reset path if argument is given
     if [[ $1 ]]; then
         path="$1"
     fi
-
-    # check if vaild path
-    if [[ -e "$path" ]]; then
-        printf "file $path exists\n"               # TODO: send success messege to log
-    else
-                                                    # TODO: send error messege to log (no colour)
-        printf "Error: $path not found\n" >&2      # TODO: add colour to errors
-        exit 1
-    fi
+    is_path "$1"
     
     # gets list of sub directories
     # backs out of dir if no exicutable or dir
@@ -28,8 +22,8 @@ tun_tests() {
         printf "$item\n"
         
     done
-    pwd 
+    
 
 }
 
-tun_tests "$1"
+run_tests "$1"
