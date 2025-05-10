@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # set initial player charactor variables
 
 player_name="Steve" # name will be overwriten by another function
