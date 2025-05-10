@@ -19,6 +19,7 @@ This file contains rules/styles and an explination of how to use files/directori
 - `test.sh` - exicutable: runs all valid test scripts within a given direcotry. If no argument, uses `./tests/` by default 
 - `tests/` - contains test scripts, scripts may be grouped into subdirectories
 - `vars/` - contains sctips that set variables when exicuted
+    + `entities/` - variables for entities that can be interacted with
 - `functs/` - contains scrips that read functions when exicuted
 
 ## Run tests
