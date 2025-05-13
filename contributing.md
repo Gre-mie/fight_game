@@ -6,11 +6,14 @@ This file contains rules/styles and an explination of how to use files/directori
 
 ## Style
 
-- functions and files should have a short comment explaining its purpose
-- directories use `chammelCase`, files use `snake_case`
-- directories holding test exicutables and exicutable test files should start with the word `test`.
+- Functions and files should have a short comment explaining its purpose
+- Directories use `chammelCase`, files use `snake_case`
+- Directories holding test exicutables and exicutable test files should start with the word `test`.
     + directory: `testExample/`
     + file: `test_example.sh`
+- Logs should be in the format `<date/time> <message status>: <message>` 
+    + use the log function in `./functs/debug/log.sh` to append to log.txt
+    + `log` takes a single string, eg. `log "ERROR: something broke"`
 
 
 ## Project walkthrough
@@ -20,7 +23,10 @@ This file contains rules/styles and an explination of how to use files/directori
 - `tests/` - contains test scripts, scripts may be grouped into subdirectories
 - `vars/` - contains sctips that set variables when exicuted
     + `entities/` - variables for entities that can be interacted with
-- `functs/` - contains scrips that read functions when exicuted
+- `functs/` - contains scrips that setup files and read functions when exicuted
+    + `debug` - functions used for debugging such as `log.sh`
+    + `paths` - functions for pathing such as checking if a path exists
+
 
 ## Run tests
 
