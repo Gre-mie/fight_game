@@ -24,8 +24,8 @@ This file contains rules/styles and an explination of how to use files/directori
 - `vars/` - contains sctips that set variables when exicuted
     + `entities/` - variables for entities that can be interacted with
 - `functs/` - contains scrips that setup files and read functions when exicuted
-    + `debug` - functions that can be used for debugging such as `log.sh`
-    + `paths` - functions to do with pathing such as checking if a path exists
+    + `debug` - functions used for debugging such as `log.sh`
+    + `paths` - functions for pathing such as checking if a path exists
 
 
 ## Run tests
