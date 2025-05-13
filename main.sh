@@ -1,19 +1,15 @@
 #!/bin/bash
 
+# load necessary files globally
+. $(find ./ -name "log.sh")
+
 # This script is the entry point for the game
+set -e
 
-date_time=$(date "+%Y-%m-%d %H:%M:%S\t")
-printf "${date_time}INFO: log.txt cleared\n" > log.txt
+log "INFO: main.sh running..."
 
-# log format <date/time> <message status:> <message> 
-# types of message status  INFO: ERROR:
+# Game setup function
 
-log() {
-    date_time=$(date "+%Y-%m-%d %H:%M:%S\t")
-    printf "$date_time$1\n" >> log.txt
-}
+# Game loop
 
-log "ERROR: bla bla bla"
-
-# TODO: add to contributing
-# move log definition (top of file?)
+log "INFO: main.sh complete"

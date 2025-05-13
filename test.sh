@@ -1,11 +1,13 @@
 #!/bin/bash
 
-. ./functs/paths/is_path.sh
+# load necessary files globally
+. $(find ./ -name "log.sh")
+. $(find ./ -name "is_path.sh")
 
 # This script will exicute tests within the tests/ directory
 set -e
 
-run_tests() {
+run_tests() { # args: string | void -> void
     local path="./tests"
     # reset path if argument is given
     if [[ $1 ]]; then
@@ -18,7 +20,7 @@ run_tests() {
     if [[ -f "$path" && "$path" =~ ^test ]]; then
         . "$path"
     fi
-    
+
     local sub_dirs=($(ls "$path"))
 
     # DFS to exicute all the files in the direcotry

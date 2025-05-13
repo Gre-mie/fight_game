@@ -1,2 +1,0 @@
-2025-05-11 20:05:09	INFO: log.txt cleared
-2025-05-11 20:05:09	ERROR: bla bla bla
