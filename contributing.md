@@ -25,7 +25,7 @@ This file contains rules/styles and an explination of how to use files/directori
     + `entities/` - variables for entities that can be interacted with
 - `functs/` - contains scrips that setup files and read functions when exicuted
     + `debug` - functions used for debugging such as `log.sh`
-    + `paths` - functions for pathing such as checking if a path exists
+    + `paths` - functions for pathing such as checking if a path exists loading a path
 
 
 ## Run tests
