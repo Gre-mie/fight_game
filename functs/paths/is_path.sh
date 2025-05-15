@@ -3,8 +3,10 @@ is_path() { # args: string -> status code
     if [[ -e "$1" ]]; then
         return 0
     else
-        log "ERROR: $1 not found"
-        printf "Error: $1 not found\n" >&2      # TODO: add colour to errors
-        exit 1
+        if [[ $1 == "" ]]; then                                     # TODO: add colour to errors
+            log "ERROR: path is an empty string, path not found"
+        else
+            log "ERROR: $1 not found"
+        fi
     fi
 }
