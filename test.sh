@@ -2,9 +2,14 @@
 
 # load necessary files globally
 . ./functs/debug.sh
+. ./functs/game_functions.sh
 
 # This script will exicute tests within the tests/ directory
-set -e
+#set -e
+
+# set global pass/fail with colour
+col_fail="\033[31m X \033[39m"
+col_pass="\033[92m > \033[39m"
 
 run_tests() { # args: string | void -> void
     local path="./tests"
