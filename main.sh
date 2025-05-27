@@ -5,6 +5,7 @@
 # Game setup
 # load necessary functions globally
 . ./functs/debug.sh
+. ./functs/input_functions.sh
 . ./functs/game_functions.sh
 
 # load global variables

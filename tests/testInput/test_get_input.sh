@@ -1,6 +1,6 @@
 # tests for get_input funciton
 
-. ./functs/game_functions.sh
+. ./functs/input_functions.sh
 
 test_get_input() {
 

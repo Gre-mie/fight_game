@@ -2,7 +2,6 @@
 
 # load necessary files globally
 . ./functs/debug.sh
-. ./functs/game_functions.sh
 
 # This script will exicute tests within the tests/ directory
 #set -e
