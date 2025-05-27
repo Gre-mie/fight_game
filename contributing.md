@@ -13,7 +13,7 @@ This file contains rules/styles and an explination of how to use files/directori
     + file: `test_example.sh`
 - Logs should be in the format `<date/time> <message status>: <message>` 
     + use the log function in `./functs/debug/log.sh` to append to log.txt
-    + `log` takes a single string, eg. `log "ERROR: something broke"`
+    + `log` takes a single string and will add the date/time automatically, eg. `log "ERROR: something broke"`
 
 
 ## Project walkthrough
@@ -24,10 +24,7 @@ This file contains rules/styles and an explination of how to use files/directori
 - `vars/` - contains sctips that set variables when exicuted
     + `entities/` - variables for entities that can be interacted with
 - `functs/` - contains scrips that setup files and read functions when exicuted
-    + `debug` - functions used for debugging such as `log.sh`
-    + `paths` - functions for pathing such as checking if a path exists
-
 
 ## Run tests
 
-Use `./tests.sh [path]` from the project root to exicute all valid test files in given directory and sub directories. If no path given will run tests from `./tests/`
+Use `./tests.sh [path]` from the project root to exicute all valid test files in the given directory and all sub directories. If no path is given, will run tests from `./tests/` by default.
