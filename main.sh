@@ -13,8 +13,9 @@ log "INFO: loading global variables"
 
 
 # reset player charactor name
-#player_name=$(get_input)
-#printf "$player_name\n"
+printf "Enter your name: "
+player_name=$(get_input 20 string)
+printf "player name: ${player_name}\n"
 
 
 # Game loop
@@ -25,6 +26,9 @@ while [[ $running == true ]]; do
 log "INFO: starting game loop..."
 
 # getting input from user should go here
+printf "Enter an option: "
+player_option=$(get_input 1)
+printf "\nplayer option: ${player_option}\n"
 
 # update logic should go here
 

@@ -29,7 +29,7 @@ get_input() {
         if [[ $2 =~ "string" ]]; then
 
             read -n ${1} input
-            printf "\n$input"
+            printf "$input"
             # check if input a valid string of ^[a-zA-Z]+$ return automatically at $1 chars
 
             return 0
@@ -40,7 +40,7 @@ get_input() {
     fi
 
     read -n ${1} input
-    printf "\n$input"
+    printf "$input"
     # check if input a valid int (option from menu) return automatically after $1 chars
     # int should not supass the max number of options, eg 0 - len option list 
     # 0 option will be reserved for exiting the game
