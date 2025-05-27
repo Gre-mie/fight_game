@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # load necessary files globally
-. $(find ./ -name "log.sh")
-. $(find ./ -name "is_path.sh")
+. ./functs/debug.sh
 
 # This script will exicute tests within the tests/ directory
 set -e

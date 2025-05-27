@@ -1,4 +1,4 @@
-#!/bin/bash
+# helperfunctions for game logic
 
 # Draws to the screen
 draw() {

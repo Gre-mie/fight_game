@@ -4,9 +4,8 @@
 
 # Game setup
 # load necessary functions globally
-. ./functs/debug/log.sh
-. ./functs/paths/is_path.sh
-. ./functs/gameFunctions/draw.sh
+. ./functs/debug.sh
+. ./functs/game_functions.sh
 
 # load global variables
 log "INFO: loading global variables"
@@ -35,4 +34,3 @@ draw
 done
 
 log "INFO: game loop ended naturally"
-return 0
