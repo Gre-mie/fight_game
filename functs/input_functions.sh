@@ -10,6 +10,7 @@
             # returns a number from 0-((int-1))
 get_input() {
     local input
+    local x_marker="\033[31mX \033[39m"
 
     # checks for correct number arguments
     local error_message="ERROR: incorrect arguemnts, get_input int ['string']"
@@ -29,9 +30,17 @@ get_input() {
         if [[ $2 =~ "string" ]]; then
 
             read -n ${1} input
-            printf "$input"
-            # check if input a valid string of ^[a-zA-Z]+$ return automatically at $1 chars
-
+            # continually asks user for input until a valid string is given 
+                # automatically returns when it reaches $1 chars read
+                # a valid string is a-zA-Z 
+                # unable to get space matching to work
+            while ! [[ "$input" =~ ^[a-zA-Z]+$ ]]; do
+                log "WARNING: Invalid input, requires string a-z A-Z"
+                # >&2 is used to force the print to happen imediatly instead of waiting for the output stream buffer to be full
+                printf "${x_marker} Invalid input $ " >&2 
+                read -n ${1} input
+            done
+            echo "${input}"
             return 0
         else
             echo "$error_message" >&2
