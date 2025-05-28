@@ -1,4 +1,4 @@
-# helperfunctions for game logic
+# contains functions for game logic and formatting
 
 # Draws to the screen
 draw() {
