@@ -12,11 +12,9 @@
 log "INFO: loading global variables"
 . ./vars/entities/player.sh
 
-
 # reset player charactor name
 printf "Enter your name: "
 player_name=$(get_input 20 string)
-
 
 # Game loop
 # all game logic for updating
@@ -41,7 +39,7 @@ running=false
 fi
 
 
-#draw
+draw
 ((frame++))
 done
 
