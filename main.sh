@@ -26,14 +26,17 @@ log "INFO: starting game loop..."
 while [[ $running == true ]]; do
 
 # getting input from user should go here
-#printf "Enter an option: "
-#player_option=$(get_input 1)
-#printf "\nplayer option: ${player_option}\n"
+printf "Enter an option: "
+
+test_arr=("0: exit" "1: example option" "2: example option") # !!! remove this
+player_option=$(get_input ${#test_arr[@]})
+
+printf "\nplayer option: ${player_option}\n"
 
 # update logic should go here
 
-# temp exit condition
-if [[ $frame -ge 5 ]]; then
+# temp exit condition    !!! remove this
+if [[ $frame -ge 2 ]]; then
 running=false
 fi
 

@@ -35,7 +35,7 @@ get_input() {
                 # a valid string is a-zA-Z 
                 # unable to get space matching to work
             while ! [[ "$input" =~ ^[a-zA-Z]+$ ]]; do
-                log "WARNING: Invalid input, requires string a-z A-Z"
+                log "WARNING: Invalid input '${input}', requires string a-z A-Z"
                 # >&2 is used to force the print to happen imediatly instead of waiting for the output stream buffer to be full
                 printf "${x_marker} Invalid input $ " >&2 
                 read -n ${1} input
@@ -48,12 +48,17 @@ get_input() {
         fi
     fi
 
-    read -n ${1} input
-    printf "$input"
+    read input
     # check if input a valid int (option from menu) return automatically after $1 chars
     # int should not supass the max number of options, eg 0 - len option list 
     # 0 option will be reserved for exiting the game
+    while [[ ! "$input" =~ ^[0-9]+$ || "$input" -lt 0 || "$input" -ge ${1} ]]; do
+        log "WARNING: Invalid input '${input}', requires int 0-${1}"
+        # >&2 is used to force the print to happen imediatly instead of waiting for the output stream buffer to be full
+        printf "${x_marker} Invalid input $ " >&2 
+        read input
+    done
 
-
+    echo "$input"
     return 0
 }
