@@ -37,7 +37,7 @@ get_input() {
             while ! [[ "$input" =~ ^[a-zA-Z]+$ ]]; do
                 log "WARNING: Invalid input '${input}', requires string a-z A-Z"
                 # >&2 is used to force the print to happen imediatly instead of waiting for the output stream buffer to be full
-                printf "${x_marker} Invalid input $ " >&2 
+                printf "${x_marker} Invalid input, not a-Z $ " >&2 
                 read -n ${1} input
             done
             echo "${input}"
@@ -52,10 +52,12 @@ get_input() {
     # check if input a valid int (option from menu) return automatically after $1 chars
     # int should not supass the max number of options, eg 0 - len option list 
     # 0 option will be reserved for exiting the game
+    local max_option=$1
+    ((max_option--))
     while [[ ! "$input" =~ ^[0-9]+$ || "$input" -lt 0 || "$input" -ge ${1} ]]; do
         log "WARNING: Invalid input '${input}', requires int 0-${1}"
         # >&2 is used to force the print to happen imediatly instead of waiting for the output stream buffer to be full
-        printf "${x_marker} Invalid input $ " >&2 
+        printf "${x_marker} Invalid input, not 0-${max_option} " >&2 
         read input
     done
 
