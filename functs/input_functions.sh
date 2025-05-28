@@ -1,6 +1,13 @@
 # functions to do with getting input from the user and validation
 
 # gets input from user
+# two types of input can be returned
+    # if 'string' is present as the second option, the int represents the max num of chars before automatic return
+        # get_input <int> string
+            # returns a string
+    # if there is no second option, the int represents the number of items in an array
+        # get_input <int>
+            # returns a number from 0-((int-1))
 get_input() {
     local input
 
