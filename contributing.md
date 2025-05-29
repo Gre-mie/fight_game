@@ -28,3 +28,15 @@ This file contains rules/styles and an explination of how to use files/directori
 ## Run tests
 
 Use `./tests.sh [path]` from the project root to exicute all valid test files in the given directory and all sub directories. If no path is given, will run tests from `./tests/` by default.
+
+## Game rules
+
+These rules are to help keep the game balanced
+
+### Enemies
+
+When creating enemy starting stat files these things should be true when compared the player starting stat file
+
+- enemy health < player health
+- enemy defence < player power
+- enemy power <= 1/4 player health
