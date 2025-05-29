@@ -11,10 +11,20 @@
 # load global variables
 log "INFO: loading global variables"
 . ./vars/entities/player.sh
+game_level=1
+max_levels=2
+
+# test vvv
+while [[ $game_level -le $max_levels ]]; do
+    printf "game level: $game_level\n"
+
+    ((game_level++))
+done
+# test ^^^
 
 # reset player charactor name
 printf "Enter your name: "
-player_name=$(get_input 20 string)
+#player_name=$(get_input 20 string)
 
 # Game loop
 # all game logic for updating
@@ -27,7 +37,7 @@ while [[ $running == true ]]; do
 printf "Enter an option: "
 
 test_arr=("0: exit" "1: example option" "2: example option") # !!! remove this
-player_option=$(get_input ${#test_arr[@]})
+#player_option=$(get_input ${#test_arr[@]})
 
 printf "\nplayer option: ${player_option}\n"
 
@@ -39,7 +49,7 @@ running=false
 fi
 
 
-draw
+#draw
 ((frame++))
 done
 
