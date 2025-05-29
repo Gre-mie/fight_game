@@ -1,4 +1,4 @@
-# holds a list for room 4
+# holds a list of enemy paths for room 4
 
 printf "\ncurrent room 4\n"
 

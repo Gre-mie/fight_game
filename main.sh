@@ -14,6 +14,13 @@ log "INFO: loading global variables"
 current_level=1
 max_levels=6
 current_room=()
+current_enemy=0
+
+# initilise enemy vars
+enemy_type=""
+enemy_health=0
+enemy_defence=0
+enemy_power=0
 
 # reset player charactor name
 #printf "Enter your name: "
@@ -39,18 +46,9 @@ test_arr=("0: exit" "1: example option" "2: example option") # !!! remove this
 
 # loads the next level if current_room is empty
 if [[ $current_level -le $max_levels ]]; then # TODO: add empty room condition
-    # load level
     room_path="./vars/rooms/room${current_level}.sh"
     source "$room_path"
-
-    
-    
-    for ((i=0 ; i < ${#current_room[@]} ; i++)); do
-        printf "  enemy $i : ${current_room[$i]}\n"
-    done
-
-
-    #((current_level++))
+    current_enemy=0
 else
     # win condition
     # when current_level is greater than max_levels
@@ -60,13 +58,26 @@ else
     running=false
 fi
 
+# load next enemy if current enmey is dead
+if [[ enemy_health -le 0 ]]; then
+    printf "trying to load enemy at: $current_enemy\n"
+    enemy_path="${current_room[$current_enemy]}"
+    source "$enemy_path"
+fi
+
 # temp code vvv
-    # used to prevent infinate loop
+
+
+printf "current enemy: $current_enemy  enemy: ${enemy_type}\n"
+
+
+# temp code ^^^
+
+# temp code vvv prevent infinate loop
 if [[ $frame -ge 3 ]]; then
     exit 1
 fi
-
-# temp code ^^^
+# temp code ^^^ prevent infinate loop
 
 
 

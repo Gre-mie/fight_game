@@ -1,9 +1,11 @@
-# holds a list for room 1
+# holds a list of enemy paths for room 1
+
+# fairy fairy
 
 printf "\ncurrent room 1\n"
 
 if [[ ${#current_room[@]} == 0 ]]; then
-    current_room=("enemy1" "enemy2")
+    current_room=("./vars/entities/enemies/fairy.sh" "./vars/entities/enemies/fairy.sh")
     log "INFO: room 1 loaded"
     ((current_level++))
 else

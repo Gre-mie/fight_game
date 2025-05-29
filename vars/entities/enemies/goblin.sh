@@ -6,3 +6,5 @@ enemy_type="Goblin"
 enemy_health=30
 enemy_defence=3
 enemy_power=5
+
+log "INFO: attempting to load Goblin"

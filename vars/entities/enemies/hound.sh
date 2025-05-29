@@ -6,3 +6,5 @@ enemy_type="Hound"
 enemy_health=20
 enemy_defence=3
 enemy_power=7
+
+log "INFO: attempting to load Hound"

@@ -6,3 +6,5 @@ enemy_type="Orc"
 enemy_health=35
 enemy_defence=9
 enemy_power=25
+
+log "INFO: attempting to load Orc"
