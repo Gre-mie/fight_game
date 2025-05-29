@@ -1,5 +1,7 @@
 # holds a list of enemy paths for room 6
 
+# troll hound orc fairy goblin
+
 printf "\ncurrent room 6\n"
 
 if [[ $current_enemy -ge ${#current_room[@]} ]]; then
