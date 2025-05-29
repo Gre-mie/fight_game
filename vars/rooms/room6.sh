@@ -2,7 +2,7 @@
 
 printf "\ncurrent room 6\n"
 
-if [[ ${#current_room[@]} == 0 ]]; then
+if [[ $current_enemy -ge ${#current_room[@]} ]]; then
     current_room=("enemy16" "enemy17" "enemy18" "enemy19" "enemy20")
     log "INFO: room 6 loaded"
     ((current_level++))

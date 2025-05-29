@@ -33,6 +33,33 @@ frame=1
 log "INFO: starting game loop..."
 while [[ $running == true ]]; do
 
+# loading rooms
+# loads the next level if current_room is empty and there is another level
+if [[ $current_level -le $max_levels && $current_enemy -eq "${#current_room[@]}" ]]; then # TODO: add empty room condition, if current_enemy >= len current_room
+    room_path="./vars/rooms/room${current_level}.sh"
+    source "$room_path"
+    current_enemy=0
+fi
+# win condition is checked after 
+if [[ $current_level -gt $max_levels && $current_enemy -le "${#current_room[@]}" ]]; then
+    # win condition
+    # when current_level is greater than max_levels
+    # and the current room is empty
+    printf "\nYOU WIN :D\n"
+    log "INFO: no more enemies, player wins"
+    running=false
+    #exit 1
+fi
+
+# load next enemy if current enmey is dead
+if [[ $enemy_health -le 0 ]]; then
+    printf "trying to load enemy at: $current_enemy\n"
+    enemy_path="${current_room[$current_enemy]}"
+    source "$enemy_path"
+    ((current_enemy++))
+fi
+
+
 # getting input from user should go here
 #printf "Enter an option: "
 
@@ -40,38 +67,19 @@ test_arr=("0: exit" "1: example option" "2: example option") # !!! remove this
 #player_option=$(get_input ${#test_arr[@]})
 
 
-# update logic should go here
+# battle logic here
 
 
-
-# loads the next level if current_room is empty
-if [[ $current_level -le $max_levels ]]; then # TODO: add empty room condition
-    room_path="./vars/rooms/room${current_level}.sh"
-    source "$room_path"
-    current_enemy=0
-else
-    # win condition
-    # when current_level is greater than max_levels
-    # and the current room is empty
-    printf "\nYOU WIN :D\n"
-    log "INFO: no more enemies, player wins"
-    running=false
-fi
-
-# load next enemy if current enmey is dead
-if [[ enemy_health -le 0 ]]; then
-    printf "trying to load enemy at: $current_enemy\n"
-    enemy_path="${current_room[$current_enemy]}"
-    source "$enemy_path"
-fi
 
 # temp code vvv
 
-
-printf "current enemy: $current_enemy  enemy: ${enemy_type}\n"
+enemy_health=0
+printf "enemy: ${enemy_type} killed\n"
 
 
 # temp code ^^^
+
+
 
 # temp code vvv prevent infinate loop
 if [[ $frame -ge 3 ]]; then
