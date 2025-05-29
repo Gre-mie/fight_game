@@ -1,3 +1,4 @@
 # holds a list for room 1
 
-current_room=()
+log "INFO: room1 loaded"
+current_room=("enemy1" "enemy2" "enemy3")

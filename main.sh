@@ -11,16 +11,9 @@
 # load global variables
 log "INFO: loading global variables"
 . ./vars/entities/player.sh
-game_level=1
-max_levels=2
-
-# test vvv
-while [[ $game_level -le $max_levels ]]; do
-    printf "game level: $game_level\n"
-
-    ((game_level++))
-done
-# test ^^^
+current_level=1
+max_levels=6
+current_room=()
 
 # reset player charactor name
 printf "Enter your name: "
@@ -43,10 +36,31 @@ printf "\nplayer option: ${player_option}\n"
 
 # update logic should go here
 
-# temp exit condition    !!! remove this
-if [[ $frame -ge 2 ]]; then
-running=false
+
+
+# loads the next level if current_room is empty
+if [[ $current_level -le $max_levels ]]; then # TODO: add empty room condition
+    printf "game level: $current_level\n"
+    #load level
+
+    printf "\n"
+
+    ((current_level++))
+else
+    # win condition
+    # when current_level is greater than max_levels
+    # and the current room is empty
+    printf "\nYOU WIN :D\n"
+    running=false
 fi
+
+
+
+
+# check if player still alive
+    # if not alive print loose condition
+    # running=false
+
 
 
 #draw
