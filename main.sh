@@ -16,7 +16,7 @@ max_levels=6
 current_room=()
 
 # reset player charactor name
-printf "Enter your name: "
+#printf "Enter your name: "
 #player_name=$(get_input 20 string)
 
 # Game loop
@@ -27,12 +27,11 @@ log "INFO: starting game loop..."
 while [[ $running == true ]]; do
 
 # getting input from user should go here
-printf "Enter an option: "
+#printf "Enter an option: "
 
 test_arr=("0: exit" "1: example option" "2: example option") # !!! remove this
 #player_option=$(get_input ${#test_arr[@]})
 
-printf "\nplayer option: ${player_option}\n"
 
 # update logic should go here
 
@@ -40,10 +39,17 @@ printf "\nplayer option: ${player_option}\n"
 
 # loads the next level if current_room is empty
 if [[ $current_level -le $max_levels ]]; then # TODO: add empty room condition
-    printf "game level: $current_level\n"
     #load level
+    
+    room_path="./vars/rooms/room${current_level}.sh"
+    printf "room path: ${room_path}\n"
+    (. $room_path)
 
-    printf "\n"
+    printf "\ncurrent room len: ${#current_room[@]}\n"
+    for ((i=0 ; i < ${#current_room[@]} ; i++)); do
+        printf "  $i : ${current_room[$i]}\n"
+    done
+
 
     ((current_level++))
 else
@@ -51,9 +57,9 @@ else
     # when current_level is greater than max_levels
     # and the current room is empty
     printf "\nYOU WIN :D\n"
+    log "INFO: no more enemies, player wins"
     running=false
 fi
-
 
 
 
