@@ -14,7 +14,7 @@ test_return_status=("") # starting the list with an empty string solves spacing 
 
 
 test_title=         # !!!! what the test does
-# !!!! call function and save return or use 2> err.log if checking for exit code
+# !!!! call function and save return or use 2> .err.log if checking for exit code
 #if exit code or function returns unexpect result; then
  #   ((test_pass++))
 #else
