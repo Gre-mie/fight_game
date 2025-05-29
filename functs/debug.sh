@@ -22,7 +22,7 @@ is_path() { # args: string -> status code
         return 0
     else
         log "ERROR: $1 not found"
-        printf "Error: $1 not found\n" >&2      # TODO: add colour to errors
+        printf "\033[33mError: \033[39m$1 not found\n" >&2
         exit 1
     fi
 }
