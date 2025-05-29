@@ -2,8 +2,6 @@
 
 # troll hound orc fairy goblin
 
-printf "\ncurrent room 6\n"
-
 if [[ $current_enemy -ge ${#current_room[@]} ]]; then
     current_room=("./vars/entities/enemies/troll.sh" "./vars/entities/enemies/hound.sh" "./vars/entities/enemies/orc.sh" "./vars/entities/enemies/fairy.sh" "./vars/entities/enemies/goblin.sh")
     log "INFO: room 6 loaded"

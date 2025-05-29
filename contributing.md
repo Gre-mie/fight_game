@@ -31,9 +31,9 @@ Use `./tests.sh [path]` from the project root to exicute all valid test files in
 
 ## Creating rooms
 
-Rooms should be named in "room<int>.sh" format.
+Rooms should be named in `room<int>.sh` format in `.vars/rooms/`.
 
-When rooms are entered starting from room1 incrementing until the `max_levels` threshold is reached
+Rooms are entered starting with room1 incrementing until the `max_levels` threshold is reached
 
 ## Creating enemies
 
