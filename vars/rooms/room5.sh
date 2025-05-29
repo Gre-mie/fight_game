@@ -1,4 +1,11 @@
 # holds a list for room 5
 
-log "INFO: room 5 loaded"
-current_room=("enemy13" "enemy14" "enemy15")
+printf "\ncurrent room 5\n"
+
+if [[ ${#current_room[@]} == 0 ]]; then
+    current_room=("enemy13" "enemy14" "enemy15")
+    log "INFO: room 5 loaded"
+    ((current_level++))
+else
+    log "WARNING: failure to load room 5, ${#current_room[@]} enemies were still in room"
+fi

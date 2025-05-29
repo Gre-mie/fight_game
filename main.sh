@@ -39,19 +39,18 @@ test_arr=("0: exit" "1: example option" "2: example option") # !!! remove this
 
 # loads the next level if current_room is empty
 if [[ $current_level -le $max_levels ]]; then # TODO: add empty room condition
-    #load level
-    
+    # load level
     room_path="./vars/rooms/room${current_level}.sh"
-    printf "room path: ${room_path}\n"
-    (. $room_path)
+    source "$room_path"
 
-    printf "\ncurrent room len: ${#current_room[@]}\n"
+    
+    
     for ((i=0 ; i < ${#current_room[@]} ; i++)); do
-        printf "  $i : ${current_room[$i]}\n"
+        printf "  enemy $i : ${current_room[$i]}\n"
     done
 
 
-    ((current_level++))
+    #((current_level++))
 else
     # win condition
     # when current_level is greater than max_levels
@@ -60,6 +59,14 @@ else
     log "INFO: no more enemies, player wins"
     running=false
 fi
+
+# temp code vvv
+    # used to prevent infinate loop
+if [[ $frame -ge 3 ]]; then
+    exit 1
+fi
+
+# temp code ^^^
 
 
 
