@@ -29,13 +29,15 @@ This file contains rules/styles and an explination of how to use files/directori
 
 Use `./tests.sh [path]` from the project root to exicute all valid test files in the given directory and all sub directories. If no path is given, will run tests from `./tests/` by default.
 
-## Game rules
+## Creating rooms
 
-These rules are to help keep the game balanced
+Rooms should be named in "room<int>.sh" format.
 
-### Enemies
+When rooms are entered starting from room1 incrementing until the `max_levels` threshold is reached
 
-When creating enemy starting stat files these things should be true when compared the player starting stat file
+## Creating enemies
+
+These rules should be followed when creating an enemy stat file to keep the game balanced.
 
 - enemy health < player health
 - enemy defence < player power
