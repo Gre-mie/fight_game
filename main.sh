@@ -11,7 +11,7 @@
 # load global variables
 log "INFO: loading global variables"
 . ./vars/entities/player.sh
-current_level=1
+next_level=1
 max_levels=6
 current_room=()
 current_enemy=0
@@ -35,25 +35,24 @@ while [[ $running == true ]]; do
 
 # loading rooms
 # loads the next level if current_room is empty and there is another level
-if [[ $current_level -le $max_levels && $current_enemy -eq "${#current_room[@]}" ]]; then # TODO: add empty room condition, if current_enemy >= len current_room
-    room_path="./vars/rooms/room${current_level}.sh"
+if [[ $next_level -le $max_levels && $current_enemy -eq "${#current_room[@]}" ]]; then # TODO: add empty room condition, if current_enemy >= len current_room
+    room_path="./vars/rooms/room${next_level}.sh"
     source "$room_path"
     current_enemy=0
 fi
-# win condition is checked after 
-if [[ $current_level -gt $max_levels && $current_enemy -le "${#current_room[@]}" ]]; then
+# win condition is checked after room and enemy is loaded
+if [[ $next_level -ge $max_levels && $current_enemy -ge "${#current_room[@]}" ]]; then
     # win condition
-    # when current_level is greater than max_levels
+    # when next_level is greater than max_levels
     # and the current room is empty
     printf "\nYOU WIN :D\n"
     log "INFO: no more enemies, player wins"
     running=false
-    #exit 1
+    exit 1
 fi
 
 # load next enemy if current enmey is dead
 if [[ $enemy_health -le 0 ]]; then
-    printf "trying to load enemy at: $current_enemy\n"
     enemy_path="${current_room[$current_enemy]}"
     source "$enemy_path"
     ((current_enemy++))
@@ -82,7 +81,7 @@ printf "enemy: ${enemy_type} killed\n"
 
 
 # temp code vvv prevent infinate loop
-if [[ $frame -ge 3 ]]; then
+if [[ $frame -ge 25 ]]; then
     exit 1
 fi
 # temp code ^^^ prevent infinate loop

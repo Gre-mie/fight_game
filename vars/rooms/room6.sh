@@ -3,9 +3,9 @@
 printf "\ncurrent room 6\n"
 
 if [[ $current_enemy -ge ${#current_room[@]} ]]; then
-    current_room=("enemy16" "enemy17" "enemy18" "enemy19" "enemy20")
+    current_room=("./vars/entities/enemies/troll.sh" "./vars/entities/enemies/hound.sh" "./vars/entities/enemies/orc.sh" "./vars/entities/enemies/fairy.sh" "./vars/entities/enemies/goblin.sh")
     log "INFO: room 6 loaded"
-    ((current_level++))
+    ((next_level++))
 else
     log "WARNING: failure to load room 6, ${#current_room[@]} enemies were still in room"
 fi
