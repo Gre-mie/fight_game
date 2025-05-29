@@ -6,3 +6,5 @@ enemy_type="Troll"
 enemy_health=30
 enemy_defence=5
 enemy_power=10
+
+log "INFO: attempting to load Troll"
