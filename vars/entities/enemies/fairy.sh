@@ -7,4 +7,6 @@ enemy_health=15
 enemy_defence=0
 enemy_power=3
 
-log "INFO: attempting to load Fairy"
+enemy_score=1
+
+log "INFO: attempting to load ${enemy_type}"

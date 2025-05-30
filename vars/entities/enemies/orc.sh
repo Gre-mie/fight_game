@@ -7,4 +7,6 @@ enemy_health=35
 enemy_defence=9
 enemy_power=25
 
-log "INFO: attempting to load Orc"
+enemy_score=5
+
+log "INFO: attempting to load ${enemy_type}"
