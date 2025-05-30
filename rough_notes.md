@@ -59,30 +59,142 @@ funciton pick_up() {
 }
 ```
 
-## !!! NOT NEEDED !!! `set -u` solve this problem
+# Game Screen
 
-when an item is removed, a new inventory array is built to remove unused indexes
+0   0...5....1....5....2....5....3....5....4....5....5....5....6
+1    _________________________________________________________
+2   | rooms				               v0.2.1 |
+3   |   1         2         3         4         5         6   |  
+4   |   |_________|_________|_________|_________|_________|   |
+5   |_________________________________________________________|
+6   |                                                         |
+7   |              |  --                    --  |             |
+8   | Player name  |   |                    |   |  Enemy name |
+9   |   action     |  (|                    |)  |    action   |
+10  |             ---  |                    |  ---            |
+11  |              |  --                    --  |             |
+12  |_________________________________________________________|
+13  | Battle Log                         | player stats       |
+14  |                                    |                    |
+15  | Player attacks                     | Health         100 |
+16  | Enemy took 10 damage               | defence        5   |
+17  | Enemy attacks                      | Power          10  |
+18  | Player took 10 damage              |                    |
+19  |____________________________________|____________________|
+20  | Options:  1 Attack     2 Defend                  0 Exit |
+21  |                                                         |
+22  | Choose an option $                                      |
+23  |_________________________________________________________|
 
-```
-# filters out empty indexes from an inventory
+Min terminal size:   59 width    23 height
 
-function resize_arr() {
- #   local new_inventory=() # local used to keep scope inside the function
-  #  for item in "$@"; do
-   #     if [[ -n "$item" ]]; then
-    #    new_inventory+=("$item")
-     #   fi
-#    done
- #   echo "$new_inventory[@]"
-    local new_arr="$@"
-    return ${new_arr[@]}
-}
-```
-```
-# create new inventory state, copy inventory with new item at end
-player_inventory = (item1, item2, item3) # starting inventory
-unset player_inventory[1] # index for player_inventory[1] is still present, but empty
-player_inventory=($(resize_arr "${player_inventory[@]}")) # sets the new inventory state
-player_inventory+=("$item4") # add the new item
 
-```
+Animations
+
+enemy defend
+player defend
+enemy attack
+player attack
+
+sword swing
+5   |_________________________________________________________|
+6   |                                                         |
+7   |              |                        --                |
+8   | Player name  |      /                 |      Enemy name |
+9   |   action     |     /                  |)       action   |
+10  |             ---  \/                   |                 |
+11  |              |   /\    --|------      --                |
+12  |_________________________________________________________|
+
+
+player seen errors
+
+19  |____________________________________|____________________|
+20  | Options:  1 Attack     2 Defend                  0 Exit |
+21  | Incorrect input <a-Z>                                   |
+22  | Choose a name $                                         |
+23  |_________________________________________________________|
+
+19  |____________________________________|____________________|
+20  | Options:  1 Attack     2 Defend                  0 Exit |
+21  | Incorrect input <0-2>                                   |
+22  | Choose an option $                                      |
+23  |_________________________________________________________|
+
+game end screens
+
+Player Win
+
+0   0...5....1....5....2....5....3....5....4....5....5....5....6
+1    _________________________________________________________
+2   | rooms						      |
+3   |   1         2         3         4         5         6   |  
+4   |   |_________|_________|_________|_________|_________|   |
+5   |_________________________________________________________|
+6   |                                                         |
+7   | 			    YOU WIN :D                        |
+8   |                                                         |
+9   |   Rooms completed    2                                  |
+10  |   Enemies defeated   7                                  |
+11  |   Items used         2                                  |
+12  |   Remaining health   75                                 |
+13  |                                                         |
+14  |                    Final score: 23                      |
+15  |_________________________________________________________|
+16  
+17  $ 
+
+Player Loose
+
+0   0...5....1....5....2....5....3....5....4....5....5....5....6
+1    _________________________________________________________
+2   | rooms						      |
+3   |   1         2         3         4         5         6   |  
+4   |   |_________|_________|_________|_________|_________|   |
+5   |_________________________________________________________|
+6   |                                                         |
+7   | 			    YOU Died :(                       |
+8   |                                                         |
+9   |   Rooms completed    0                                  |
+10  |   Enemies defeated   0                                  |
+11  |   Items used         0                                  |
+12  |   Remaining health   0                                  |
+13  |                                                         |
+14  |                    Final score: -5                      |
+15  |_________________________________________________________|
+16  
+17  $ 
+
+Player Exits early
+
+0   0...5....1....5....2....5....3....5....4....5....5....5....6
+1    _________________________________________________________
+2   | rooms						      |
+3   |   1         2         3         4         5         6   |  
+4   |   |_________|_________|_________|_________|_________|   |
+5   |_________________________________________________________|
+6   |                                                         |
+7   | 			    Exiting Game :/                   |
+8   |                                                         |
+9   |   Rooms completed    2                                  |
+10  |   Enemies defeated   7                                  |
+11  |   Items used         2                                  |
+12  |   Remaining health   75                                 |
+13  |                                                         |
+14  |                    Final score: 23                      |
+15  |_________________________________________________________|
+16  
+17  $ 
+
+Battle log
+
+Enemy vanquished
+
+12  |_________________________________________________________|
+13  | Battle Log                         | player stats       |
+14  |                                    |                    |
+15  | Player attacks                     | Health         100 |
+16  | Enemy took 10 damage               | defence        5   |
+17  | 	                                 | Power          10  |
+18  | Enemy has been slain               |                    |
+19  |____________________________________|____________________|
