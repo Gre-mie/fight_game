@@ -29,7 +29,6 @@ printf "Enter your name: "
 player_name=$(get_input 20 string)
 
 # Game loop
-# all game logic for updating
 running=true
 frame=1
 log "INFO: starting game loop..."
@@ -41,6 +40,7 @@ if [[ $next_level -le $max_levels && $current_enemy -eq "${#current_room[@]}" ]]
     room_path="./vars/rooms/room${next_level}.sh"
     source "$room_path"
     current_enemy=0
+    ((next_level++))
 fi
 # win condition is checked after room and enemy is loaded
 if [[ $next_level -ge $max_levels && $current_enemy -ge "${#current_room[@]}" ]]; then
@@ -49,15 +49,16 @@ if [[ $next_level -ge $max_levels && $current_enemy -ge "${#current_room[@]}" ]]
     running=false
     exit 1
 fi
-# load next enemy if current enmey is dead
+# add to score and load next enemy if current enmey is dead
 if [[ $enemy_health -le 0 ]]; then
     enemy_path="${current_room[$current_enemy]}"
     source "$enemy_path"
     ((current_enemy++))
+    game_score=$((game_score + enemy_score))
 fi
 
 
-# getting input from user should go here
+# get user input for option
 printf "Enter an option: "
 
 test_arr=("0: exit" "1: example option" "2: example option") # !!! remove this
@@ -70,7 +71,7 @@ player_option=$(get_input ${#test_arr[@]})
 # temp code vvv
 
 enemy_health=0
-printf "enemy: ${enemy_type} killed\n"
+#printf "enemy: ${enemy_type} killed\n"
 
 # temp code ^^^
 
