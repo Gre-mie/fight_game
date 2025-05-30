@@ -1,6 +1,7 @@
 # holds a list of enemy paths for room 1
 
-# fairy fairy
+# fairy fairy 
+# room score = 2
 
 if [[ $current_enemy -ge ${#current_room[@]} ]]; then
     current_room=("./vars/entities/enemies/fairy.sh" "./vars/entities/enemies/fairy.sh")

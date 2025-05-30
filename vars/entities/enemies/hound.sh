@@ -7,4 +7,6 @@ enemy_health=20
 enemy_defence=3
 enemy_power=7
 
-log "INFO: attempting to load Hound"
+enemy_score=3
+
+log "INFO: attempting to load ${enemy_type}"

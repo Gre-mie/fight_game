@@ -16,6 +16,8 @@ max_levels=6
 current_room=()
 current_enemy=0
 
+game_score=0
+
 # initilise enemy vars
 enemy_type=""
 enemy_health=0

@@ -6,3 +6,7 @@ enemy_type=
 enemy_health=
 enemy_defence=
 enemy_power=
+
+enemy_score=
+
+log "INFO: attempting to load ${enemy_type}"
