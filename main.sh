@@ -59,8 +59,9 @@ printf "Enter an option: "
 test_arr=("0: exit" "1: example option" "2: example option") # !!! remove this
 player_option=$(get_input ${#test_arr[@]})
 
-
-# battle logic here
+# generate enemy option from last didgit of a random number 1-2
+enemy_option=$(($RANDOM % (3 - 1) + 1))
+game_battle "${player_option}" "${enemy_option}"
 
 
 # temp code vvv cause next enemy to be loaded each frame
