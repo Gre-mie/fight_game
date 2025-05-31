@@ -61,7 +61,16 @@ player_option=$(get_input ${#test_arr[@]})
 
 # generate enemy option from last didgit of a random number 1-2
 enemy_option=$(($RANDOM % (3 - 1) + 1))
+player_health=$((player_health - 50)) # temp code <<<
+
 game_battle "${player_option}" "${enemy_option}"
+
+# exits game if player is dead
+if [[ $player_health -lt 1 ]]; then
+    log "INFO: player has died, health: $player_health"
+    printf "You Died :(\n"
+    running=false
+fi
 
 
 # temp code vvv cause next enemy to be loaded each frame
@@ -77,11 +86,6 @@ if [[ $frame -ge 25 ]]; then
     exit 1
 fi
 # temp code ^^^ prevent infinate loop
-
-
-# check if player still alive
-    # if not alive print loose condition
-    # running=false
 
 
 #draw

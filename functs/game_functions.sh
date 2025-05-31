@@ -8,9 +8,16 @@ draw() {
 }
 
 # logic to simulate a battle between player and current enemy
-# changes global player/enemy stats according to player/enemy options
-# returns playerDead | enemyDead | ""
+# changes global player/enemy variables according to player/enemy options
 game_battle() {
     printf "game_battle $1 $2\n"
-    echo ""
+
+    # run animations (function that runs animaitons (order determined by options))
+
+    # player option logic
+
+    # if enemy alive
+        # enemy option logic
+    
+
 }
