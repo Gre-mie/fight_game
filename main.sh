@@ -17,6 +17,11 @@ log "INFO: loading global variables"
 # reset player charactor name
 printf "Enter your name: "
 player_name=$(get_input 20 string)
+if [[ ${#player_name} -lt 1 ]]; then
+    log "WARNING: player name was not set"
+else
+    log "INFO: player name was set to: $player_name"
+fi
 
 # Game loop
 running=true
