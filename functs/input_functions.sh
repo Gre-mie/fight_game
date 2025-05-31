@@ -37,7 +37,7 @@ get_input() {
             while ! [[ "$input" =~ ^[a-zA-Z]+$ ]]; do
                 log "WARNING: Invalid input '${input}', requires string a-z A-Z"
                 # >&2 is used to force the print to happen imediatly instead of waiting for the output stream buffer to be full
-                printf "${x_marker} Invalid input, not a-Z $ " >&2 
+                printf "${x_marker} Invalid input, not a-Z\n$ " >&2 
                 read -n ${1} input
             done
             echo "${input}"
@@ -57,7 +57,7 @@ get_input() {
     while [[ ! "$input" =~ ^[0-9]+$ || "$input" -lt 0 || "$input" -ge ${1} ]]; do
         log "WARNING: Invalid input '${input}', requires int 0-${1}"
         # >&2 is used to force the print to happen imediatly instead of waiting for the output stream buffer to be full
-        printf "${x_marker} Invalid input, not 0-${max_option} " >&2 
+        printf "${x_marker} Invalid input, not 0-${max_option}\n$ " >&2 
         read input
     done
 
