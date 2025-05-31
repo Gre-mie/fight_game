@@ -63,7 +63,7 @@ player_option=$(get_input ${#test_arr[@]})
 enemy_option=$(($RANDOM % (3 - 1) + 1))
 player_health=$((player_health - 50)) # temp code <<<
 
-game_battle "${player_option}" "${enemy_option}"
+game_battle
 
 # exits game if player is dead
 if [[ $player_health -lt 1 ]]; then

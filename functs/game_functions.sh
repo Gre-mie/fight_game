@@ -10,7 +10,7 @@ draw() {
 # logic to simulate a battle between player and current enemy
 # changes global player/enemy variables according to player/enemy options
 game_battle() {
-    printf "game_battle $1 $2\n"
+    printf "options  player: $player_option  enemy: $enemy_option\n"
 
     # run animations (function that runs animaitons (order determined by options))
 
