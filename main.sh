@@ -11,18 +11,7 @@
 # load global variables
 log "INFO: loading global variables"
 . ./vars/entities/player.sh
-next_level=1
-max_levels=6
-current_room=()
-current_enemy=0
-
-game_score=0
-
-# initilise enemy vars
-enemy_type=""
-enemy_health=0
-enemy_defence=0
-enemy_power=0
+. ./vars/global_vars.sh
 
 # reset player charactor name
 printf "Enter your name: "
@@ -44,7 +33,7 @@ if [[ $next_level -le $max_levels && $current_enemy -eq "${#current_room[@]}" ]]
 fi
 # win condition is checked after room and enemy is loaded
 if [[ $next_level -ge $max_levels && $current_enemy -ge "${#current_room[@]}" ]]; then
-    printf "\nYOU WIN :D\n"
+    printf "\nYOU WIN :D\n-> score: $game_score\n"
     log "INFO: no more enemies, player wins"
     running=false
     exit 1
@@ -68,7 +57,7 @@ player_option=$(get_input ${#test_arr[@]})
 # battle logic here
 
 
-# temp code vvv
+# temp code vvv cause next enemy to be loaded each frame
 
 enemy_health=0
 #printf "enemy: ${enemy_type} killed\n"
