@@ -37,7 +37,7 @@ if [[ $next_level -le $max_levels && $current_enemy -eq "${#current_room[@]}" ]]
     ((next_level++))
 fi
 # win condition is checked after room and enemy is loaded
-if [[ $next_level -ge $max_levels && $current_enemy -ge "${#current_room[@]}" ]]; then
+if [[ $next_level -ge $max_levels && $current_enemy -ge "${#current_room[@]}" && $enemy_health -lt 1 ]]; then
     printf "\nYOU WIN :D\n-> score: $game_score\n"
     log "INFO: no more enemies, player wins"
     running=false
@@ -51,7 +51,6 @@ if [[ $enemy_health -le 0 ]]; then
     game_score=$((game_score + enemy_score))
 fi
 
-
 # get user input for option
 printf "Enter an option: "
 
@@ -60,10 +59,16 @@ player_option=$(get_input ${#test_arr[@]})
 
 # generate enemy option from last didgit of a random number 1-2
 enemy_option=$(($RANDOM % (3 - 1) + 1))
-player_health=$((player_health - 50)) # temp code <<<
+
 enemy_option=2 # temp code <<<
 
 game_battle
+
+# temp vvv
+printf "__ player __\nhealth: $player_health\ndefence: $player_defence\npower: $player_power\n"
+printf "__ $enemy_type __\nhealth: $enemy_health\ndefence: $enemy_defence\npower: $enemy_power\n"
+max_levels=2
+# temp ^^^
 
 # exits game if player is dead
 if [[ $player_health -lt 1 ]]; then
@@ -71,21 +76,6 @@ if [[ $player_health -lt 1 ]]; then
     printf "You Died :(\n"
     running=false
 fi
-
-
-# temp code vvv cause next enemy to be loaded each frame
-
-enemy_health=0
-
-# temp code ^^^
-# temp code vvv prevent infinate loop
-if [[ $frame -ge 25 ]]; then
-    exit 1
-fi
-# temp code ^^^ prevent infinate loop
-
-
-
 
 # log if enemy is dead
 if [[ $enemy_health -lt 1 ]]; then

@@ -22,6 +22,15 @@ game_battle() {
         if [[ $enemy_option -eq 2 ]]; then          # A D
             log "INFO: ${enemy_type} defends"
             # calculate damage to enemy with defence
+            damage=$(($player_power - $enemy_defence))
+            if [[ $damage -lt 0 ]]; then
+                damage=0
+            fi
+            #printf "damage to enemy: $damage\n"
+            #printf "enemy health: $enemy_health\n"
+            enemy_health=$(($enemy_health - $damage))
+            #printf "enemy health after attack: $enemy_health\n"
+            log "INFO: $enemy_type took $damage damage"
 
         elif [[ $enemy_option -eq 1 ]]; then            # A A
             # calculate damage to enemy 
