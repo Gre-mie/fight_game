@@ -26,7 +26,6 @@ fi
 # Game loop
 running=true
 frame=1
-log "INFO: starting game loop..."
 while [[ $running == true ]]; do
 
 # room and enemy loading logic
@@ -62,6 +61,7 @@ player_option=$(get_input ${#test_arr[@]})
 # generate enemy option from last didgit of a random number 1-2
 enemy_option=$(($RANDOM % (3 - 1) + 1))
 player_health=$((player_health - 50)) # temp code <<<
+enemy_option=2 # temp code <<<
 
 game_battle
 
@@ -76,11 +76,8 @@ fi
 # temp code vvv cause next enemy to be loaded each frame
 
 enemy_health=0
-#printf "enemy: ${enemy_type} killed\n"
 
 # temp code ^^^
-
-
 # temp code vvv prevent infinate loop
 if [[ $frame -ge 25 ]]; then
     exit 1
@@ -88,8 +85,15 @@ fi
 # temp code ^^^ prevent infinate loop
 
 
+
+
+# log if enemy is dead
+if [[ $enemy_health -lt 1 ]]; then
+    log "INFO: ${enemy_type} was slain"
+fi
+
 #draw
 ((frame++))
 done
 
-log "INFO: game loop ended naturally"
+log "INFO: game ended naturally"

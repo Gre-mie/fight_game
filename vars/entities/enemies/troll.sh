@@ -9,4 +9,4 @@ enemy_power=10
 
 enemy_score=4
 
-log "INFO: attempting to load ${enemy_type}"
+log "INFO: ${enemy_type} loaded"
