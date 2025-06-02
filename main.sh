@@ -54,8 +54,9 @@ if [[ $enemy_health -le 0 ]]; then
 fi
 
 # get user input for option
+player_options_arr=("0: exit" "1: attack" "2: defend")
 printf "Enter an option: "
-player_option=$(get_input ${#test_arr[@]})
+player_option=$(get_input ${#player_options_arr[@]})
 
 # generate enemy option from last didgit of a random number 1-2
 enemy_option=$(($RANDOM % (3 - 1) + 1))
@@ -64,7 +65,7 @@ game_battle
 # temp vvv
 printf "__ player __\nhealth: $player_health\n"
 printf "__ ${enemy_type} __\nhealth: $enemy_health\n"
-max_levels=2
+#max_levels=2
 # temp ^^^
 
 # exits game if player is dead
