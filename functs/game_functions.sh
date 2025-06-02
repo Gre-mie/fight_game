@@ -52,6 +52,7 @@ game_battle() {
                 fi
                 player_health=$(($player_health - $damage))
             log "INFO: ${player_name} defends"
+            log "INFO: ${player_name} took $damage damage"
             
         elif [[ $enemy_option -eq 2 ]]; then            # D D
             log "INFO: ${player_name} defends"

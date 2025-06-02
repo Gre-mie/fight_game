@@ -28,6 +28,8 @@ running=true
 frame=1
 while [[ $running == true ]]; do
 
+log "------------------------------------------ frame: $frame" # <<< temp code to make it easier to read logs
+
 # room and enemy loading logic
 # loads the next level if current_room is empty and max_levels hasn't been suppassed
 if [[ $next_level -le $max_levels && $current_enemy -eq "${#current_room[@]}" && $enemy_health -lt 1 ]]; then
@@ -53,24 +55,16 @@ fi
 
 # get user input for option
 printf "Enter an option: "
-
-test_arr=("0: exit" "1: example option" "2: example option") # !!! remove this
 player_option=$(get_input ${#test_arr[@]})
 
 # generate enemy option from last didgit of a random number 1-2
 enemy_option=$(($RANDOM % (3 - 1) + 1))
-
-# temp code vvv
-#source ./vars/entities/enemies/goblin.sh
-enemy_option=1
-# temp code ^^^
-
 game_battle
 
 # temp vvv
-printf "__ player __\nhealth: $player_health\ndefence: $player_defence\npower: $player_power\n"
-printf "__ $enemy_type __\nhealth: $enemy_health\ndefence: $enemy_defence\npower: $enemy_power\n"
-#max_levels=2
+printf "__ player __\nhealth: $player_health\n"
+printf "__ ${enemy_type} __\nhealth: $enemy_health\n"
+max_levels=2
 # temp ^^^
 
 # exits game if player is dead
@@ -89,4 +83,5 @@ fi
 ((frame++))
 done
 
+printf "Final Score: ${game_text_yellow}${game_score}${game_text_default}"
 log "INFO: game ended naturally"

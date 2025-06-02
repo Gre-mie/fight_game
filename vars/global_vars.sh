@@ -7,10 +7,10 @@
 
 # game variables 
 game_version="v0.3.0"
-last_updated_feature="game score system" # this is hear mostly to remind myself to think about what a feature is
+worked_on="game score system" # this is hear mostly to remind myself to think about what a feature is
 
 # log version and last feature update
-log "INFO: ${game_version} last update: ${last_updated_feature}"
+log "INFO: ${game_version} worked on last: ${worked_on}"
 
 game_score=0
 
