@@ -60,7 +60,10 @@ player_option=$(get_input ${#test_arr[@]})
 # generate enemy option from last didgit of a random number 1-2
 enemy_option=$(($RANDOM % (3 - 1) + 1))
 
-enemy_option=2 # temp code <<<
+# temp code vvv
+#source ./vars/entities/enemies/goblin.sh
+enemy_option=1
+# temp code ^^^
 
 game_battle
 

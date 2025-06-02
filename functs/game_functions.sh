@@ -14,42 +14,45 @@ draw() {
 game_battle() {
     printf "options  player: $player_option  enemy: $enemy_option\n"
 
-    # run animations, function that runs animaitons, order to run determined by player/enemy options
+    # run animations function to run animaitons. order to run determined by player/enemy options
 
     # battle logic
     if [[ ${player_option} -eq 1 ]]; then
         log "INFO: ${player_name} attacks ${enemy_type}"
-        if [[ $enemy_option -eq 2 ]]; then          # A D
+        if [[ $enemy_option -eq 2 ]]; then              # A D
             log "INFO: ${enemy_type} defends"
             # calculate damage to enemy with defence
             damage=$(($player_power - $enemy_defence))
             if [[ $damage -lt 0 ]]; then
                 damage=0
             fi
-            #printf "damage to enemy: $damage\n"
-            #printf "enemy health: $enemy_health\n"
             enemy_health=$(($enemy_health - $damage))
-            #printf "enemy health after attack: $enemy_health\n"
-            log "INFO: $enemy_type took $damage damage"
+            log "INFO: ${enemy_type} took $damage damage"
 
         elif [[ $enemy_option -eq 1 ]]; then            # A A
-            # calculate damage to enemy 
+            enemy_health=$(($enemy_health - $player_power))
+            log "INFO: ${enemy_type} took $player_power damage"
 
             # check enemy is alive
             if [[ $enemy_health -gt 0 ]]; then
-                log "INFO: ${enemy_type} attacks"
-                #calculate damage to player
+                log "INFO: ${enemy_type} attacks ${player_name}"
+                damage=$(($enemy_power - $player_defence))
+                if [[ $damage -lt 0 ]]; then
+                    damage=0
+                fi
+                player_health=$(($player_health - $damage))
+                log "INFO: ${player_name} took $damage damage"
             fi
         fi
 
     # player defending = option 2
     elif [[ $player_option -eq 2 ]]; then
-        if [[ $enemy_option -eq 1 ]]; then          # D A
+        if [[ $enemy_option -eq 1 ]]; then              # D A
             log "INFO: ${enemy_type} attacks"
                 # calculate damage to player with defence
             log "INFO: ${player_name} defends"
             
-        elif [[ $enemy_option -eq 2 ]]; then              # D D
+        elif [[ $enemy_option -eq 2 ]]; then            # D D
             log "INFO: ${player_name} defends"
             log "INFO: ${enemy_type} defends"
 
