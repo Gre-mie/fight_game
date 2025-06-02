@@ -23,6 +23,9 @@ else
     log "INFO: player name was set to: $player_name"
 fi
 
+clear # <<< temp code
+
+
 # Game loop
 running=true
 frame=1
@@ -63,8 +66,8 @@ enemy_option=$(($RANDOM % (3 - 1) + 1))
 game_battle
 
 # temp vvv
-printf "__ player __\nhealth: $player_health\n"
-printf "__ ${enemy_type} __\nhealth: $enemy_health\n"
+clear
+printf "${player_name} health: $player_health\t\t\t${enemy_type} health: $enemy_health\n\n"
 #max_levels=2
 # temp ^^^
 
@@ -78,6 +81,7 @@ fi
 # log if enemy is dead
 if [[ $enemy_health -lt 1 ]]; then
     log "INFO: ${enemy_type} was slain"
+    printf "${enemy_type} was slain\n\n" # <<< temp code
 fi
 
 #draw
