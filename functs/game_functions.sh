@@ -36,12 +36,8 @@ game_battle() {
             # check enemy is alive
             if [[ $enemy_health -gt 0 ]]; then
                 log "INFO: ${enemy_type} attacks ${player_name}"
-                damage=$(($enemy_power - $player_defence))
-                if [[ $damage -lt 0 ]]; then
-                    damage=0
-                fi
-                player_health=$(($player_health - $damage))
-                log "INFO: ${player_name} took $damage damage"
+                player_health=$(($player_health - $enemy_power))
+                log "INFO: ${player_name} took $enemy_power damage"
             fi
         fi
 
@@ -50,6 +46,11 @@ game_battle() {
         if [[ $enemy_option -eq 1 ]]; then              # D A
             log "INFO: ${enemy_type} attacks"
                 # calculate damage to player with defence
+                damage=$(($enemy_power - $player_defence))
+                if [[ $damage -lt 0 ]]; then
+                    damage=0
+                fi
+                player_health=$(($player_health - $damage))
             log "INFO: ${player_name} defends"
             
         elif [[ $enemy_option -eq 2 ]]; then            # D D
