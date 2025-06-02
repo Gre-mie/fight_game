@@ -30,7 +30,7 @@ while [[ $running == true ]]; do
 
 # room and enemy loading logic
 # loads the next level if current_room is empty and max_levels hasn't been suppassed
-if [[ $next_level -le $max_levels && $current_enemy -eq "${#current_room[@]}" ]]; then
+if [[ $next_level -le $max_levels && $current_enemy -eq "${#current_room[@]}" && $enemy_health -lt 1 ]]; then
     room_path="./vars/rooms/room${next_level}.sh"
     source "$room_path"
     current_enemy=0
@@ -70,7 +70,7 @@ game_battle
 # temp vvv
 printf "__ player __\nhealth: $player_health\ndefence: $player_defence\npower: $player_power\n"
 printf "__ $enemy_type __\nhealth: $enemy_health\ndefence: $enemy_defence\npower: $enemy_power\n"
-max_levels=2
+#max_levels=2
 # temp ^^^
 
 # exits game if player is dead
