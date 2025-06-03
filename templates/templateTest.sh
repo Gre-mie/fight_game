@@ -1,4 +1,5 @@
 # Template for tests
+    # copy to: ./tests/<directory>
 
 . ./functs/game_functions.sh
 
