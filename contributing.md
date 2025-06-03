@@ -15,6 +15,14 @@ This file contains rules/styles and an explination of how to use files/directori
     + use the log function in `./functs/debug/log.sh` to append to log.txt
     + `log` takes a single string and will add the date/time automatically, eg. `log "ERROR: something broke"`
 
+### Release commit message
+
+Release commits are used to give people a playable version of the game
+
+Release commit message format: `Release <version>`
+
+When commiting a realse commit the verison varibles in `./vars/global_vars.sh` should be updated
+
 
 ## Project walkthrough
 
