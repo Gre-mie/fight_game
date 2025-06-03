@@ -1,3 +1,6 @@
+# template for an enemy variable file
+    # copy to: ./vars/entities/enemies/
+
 # sets enemy variable to a <enemy type>
 # enemy variables will be reset each time an enemy is spawned to fight
 # only one enemy can be fought at a time
