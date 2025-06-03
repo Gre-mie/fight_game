@@ -46,7 +46,7 @@ if [[ $next_level -ge $max_levels && $current_enemy -ge "${#current_room[@]}" &&
     printf "\nYOU WIN :D\n-> score: $game_score\n"
     log "INFO: no more enemies, player wins"
     running=false
-    exit 1
+    exit 0
 fi
 # add to score and load next enemy if current enmey is dead
 if [[ $enemy_health -le 0 ]]; then
@@ -60,6 +60,12 @@ fi
 player_options_arr=("0: exit" "1: attack" "2: defend")
 printf "Enter an option: "
 player_option=$(get_input ${#player_options_arr[@]})
+
+if [[ $player_option -eq 0 ]]; then
+    log "WARNING: player ended the game"
+    printf "Final Score: ${game_text_yellow}${game_score}${game_text_default}\n"
+    exit 2
+fi
 
 # generate enemy option from last didgit of a random number 1-2
 enemy_option=$(($RANDOM % (3 - 1) + 1))
@@ -88,5 +94,5 @@ fi
 ((frame++))
 done
 
-printf "Final Score: ${game_text_yellow}${game_score}${game_text_default}"
+printf "Final Score: ${game_text_yellow}${game_score}${game_text_default}\n"
 log "INFO: game ended naturally"
