@@ -9,15 +9,15 @@ Pick options from a menu to battle enemies until all enemies are defeated or the
 Because I will continue to work on this game, some setup is needed to play a working version.
 After cloneing the repo be sure to run `setup.sh`
 `setup.sh` will branch off the last working release and switch to that branch
-Setup will only need to be run when you update the repo
+Setup will only need to be run when you update the cloned repo
 
 Use `./main.sh` from the project root of the branch created by `setup.sh` to start playing
 
 ### Trouble shooting
 
-**NOTE**: This game was made using WSL and may not work as intended in some terminal environments. 
+**NOTE**: This game was made using WSL and may not work as intended in some terminal environments.
 
-Some environments may not have all the features used by the game code. (VScode does not have blinking mode)
+Some environments may not have all the features used by the game code. for example VScode doesn't have blinking mode
 
 `main.sh` and `setup.sh` need exicute permissions to run.<br>
 You can check exicute permissions with `ls -l`<br>

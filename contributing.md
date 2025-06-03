@@ -19,7 +19,7 @@ This file contains rules/styles and an explination of how to use files/directori
 
 Release commits are used to give people a playable version of the game
 
-Release commit message format: `<version> Release`
+Release commit message format: `Release <version>`
 
 When commiting a realse commit the verison varibles in `./vars/global_vars.sh` should be updated
 
