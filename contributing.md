@@ -29,6 +29,14 @@ This file contains rules/styles and an explination of how to use files/directori
 
 Use `./tests.sh [path]` from the project root to exicute all valid test files in the given directory and all sub directories. If no path is given, will run tests from `./tests/` by default.
 
+## Exit codes
+
+Exit codes used by the game
+
+- 0 - programme ran successfully
+- 1 - programme ended with Error
+- 2 - programme was exited by user
+
 ## Creating rooms
 
 Rooms should be named in `room<int>.sh` format in `.vars/rooms/`.
@@ -42,3 +50,4 @@ These rules should be followed when creating an enemy stat file to keep the game
 - enemy health < player health
 - enemy defence < player power
 - enemy power <= 1/4 player health
+
