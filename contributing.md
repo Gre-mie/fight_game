@@ -12,7 +12,7 @@ This file contains rules/styles and an explination of how to use files/directori
     + directory: `testExample/`
     + file: `test_example.sh`
 - Logs should be in the format `<date/time> <message status>: <message>` 
-    + use the log function in `./functs/debug/log.sh` to append to log.txt
+    + use the log function in `./functs/debug/log.sh` to append to `game.log`
     + `log` takes a single string and will add the date/time automatically, eg. `log "ERROR: something broke"`
 
 ### Release commit message

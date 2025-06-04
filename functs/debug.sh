@@ -1,18 +1,18 @@
 # Functions to help with debugging and testing
 
-# Clears and overwrites log.txt starting a new session, creates the file if it doesn't exist
+# Clears and overwrites game.log starting a new session, creates the file if it doesn't exist
 # Logs should follow the following format: <date/time> <message status>: <message> 
 # Types of message status
     # INFO:
     # ERROR:
 
 date_time=$(date "+%Y-%m-%d %H:%M:%S\t")
-printf "${date_time}INFO: log.txt cleared\n" > log.txt
+printf "${date_time}INFO: game.log cleared\n" > game.log
 
 
 log() { # args: string -> void
     date_time=$(date "+%Y-%m-%d %H:%M:%S\t")
-    printf "$date_time$1\n" >> log.txt
+    printf "$date_time$1\n" >> game.log
 }
 
 
