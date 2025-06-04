@@ -11,28 +11,28 @@ test_fail=0
 test_return_status=("") # starting the list with an empty string solves spacing issue
 
 . ./vars/entities/player.sh
+local quarter_player_health=$(($player_health / 4))
 local enemy_file_paths=($(ls ./vars/entities/enemies/))
 
 for ((i=0; i < ${#enemy_file_paths[@]}; i++)); do
-    local enemy_path="./vars/entities/enemies/${enemy_file_paths[$i]}"
+  # check the path goes to a file
+  local enemy_path="./vars/entities/enemies/${enemy_file_paths[$i]}"
+  if [[ -f "${enemy_path}" ]]; then
+    test_title="test ${enemy_file_paths[$i]}"
 
-    if [[ -f "${enemy_path}" ]]; then
-        test_title="test ${enemy_file_paths[$i]}"
+    . "$enemy_path"
 
-        # exicute file to reset enemy vars
-
-        # compare enemy with player stats to determin pass/fail
-
-        if [[ 1 -eq 1 ]]; then
-            ((test_pass++))
-        else
-            ((test_fail++))
-            test_return_status+=("${col_fail}${test_title}\n")
-        fi
+    # compare enemy with player stats to determin pass/fail
+    if [[ $enemy_health -lt $player_health && $enemy_defence -lt $player_power && $enemy_power -le $quarter_player_health ]]; then
+      ((test_pass++))
     else
-      test_return_status+=("\033[33mERROR:\033[39m not a file path, ${enemy_path}\n")
-
+      ((test_fail++))
+      test_return_status+=("${col_fail}${test_title}\n")
     fi
+  else
+    test_return_status+=("\033[33mERROR:\033[39m not a file path, ${enemy_path}\n")
+
+  fi
 done
 
 
