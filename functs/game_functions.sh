@@ -12,8 +12,7 @@ draw() {
     # option 1 = attack (player and enemy)
     # option 2 = defend (player and enemy)
 game_battle() {
-    printf "options  player: $player_option  enemy: $enemy_option\n"
-
+    
     # run animations function to run animaitons. order to run determined by player/enemy options
 
     # battle logic
