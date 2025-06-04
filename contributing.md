@@ -35,7 +35,7 @@ When commiting a realse commit the verison varibles in `./vars/global_vars.sh` s
 
 ## Run tests
 
-Use `./tests.sh [path]` from the project root to exicute all valid test files in the given directory and all sub directories. If no path is given, will run tests from `./tests/` by default.
+Use `./test.sh [path]` from the project root to exicute all valid test files in the given directory and all sub directories. If no path is given, will run tests from `./tests/` by default.
 
 ## Exit codes
 
