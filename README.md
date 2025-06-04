@@ -11,7 +11,7 @@ The terminal will take input and show minimal information. If using an IDE the `
 
 When the game starts it'll ask you to give a name. This will be your charactors name and must be `a-zA-Z`, without spaces and no more than 20 chars.
 
-You'll then be asked to enter an option until the game ends. The option you choose will be the action your charactor takes.
+You'll be asked to enter an option until the game ends. The option you choose will be the action your charactor takes.
 
 Available options
 - `0` - exit the game
