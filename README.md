@@ -9,9 +9,9 @@ Pick options to battle enemies until all enemies are defeated or the player heal
 Right now the current release has no graphics and is best played inside an IDE.<br/>
 The terminal will take input and show minimal information. If using an IDE the `game.log` file will give more information (the `game.log` file is generated after `main.sh` is exicuted).
 
-When the game starts it will ask you to give a name. This will be your charactors name and must be `a-zA-Z`, without spaces and no more than 20 chars.
+When the game starts it'll ask you to give a name. This will be your charactors name and must be `a-zA-Z`, without spaces and no more than 20 chars.
 
-You will be asked to enter an option. The option you choose will be the action your charactor takes.
+You'll then be asked to enter an option until the game ends. The option you choose will be the action your charactor takes.
 
 Available options
 - `0` - exit the game
