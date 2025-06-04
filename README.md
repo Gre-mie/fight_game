@@ -25,7 +25,7 @@ Your final score will print to the terminal when your charactor dies, all enemie
 Because I'm continuing work on the game, some setup is needed to play a working version.<br/>
 After cloneing the repo run `setup.sh`.<br/>
 `setup.sh` will branch off the last working release and switch to that branch. The new branch name will be simular to `release_v0.1.0`.
-Setup will only need to be run when you update the cloned repo.
+Setup will need to be re-run when you update the cloned repo.
 
 Check your in the new branch and run `./main.sh` to start playing.
 
