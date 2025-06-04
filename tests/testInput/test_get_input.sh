@@ -3,8 +3,6 @@
 . ./functs/input_functions.sh
 
 test_get_input() {
-
-
 # vars to be returned in a string
 test_funct="testing: get_input"
 test_pass=0
