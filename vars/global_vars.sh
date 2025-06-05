@@ -25,7 +25,7 @@ fi
 
 # game variables 
 game_version="v0.1.0"
-update="Battle Update" # this is here mostly to remind myself to think about what a feature is
+update="Graphics Update" # this is here mostly to remind myself to think about what a feature is
 
 # log version and last feature update
 log "INFO: update: ${game_version} ${update}"
