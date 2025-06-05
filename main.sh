@@ -10,9 +10,9 @@
 
 # load global variables
 log "INFO: loading global variables"
-. ./vars/entities/player.sh
-. ./vars/global_vars.sh
 . ./vars/text_apperance.sh
+. ./vars/global_vars.sh
+. ./vars/entities/player.sh
 
 # reset player charactor name
 printf "Enter your name: "
