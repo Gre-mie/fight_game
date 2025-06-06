@@ -15,14 +15,19 @@ This file contains rules/styles and an explination of how to use files/directori
     + use the log function in `./functs/debug/log.sh` to append to `game.log`
     + `log` takes a single string and will add the date/time automatically, eg. `log "ERROR: something broke"`
 
-### Release commit message
+## Release features and bug fixes
 
-Release commits are used to give people a playable version of the game
+How releases and bug fixes should be handled so people can play the latest working version as I continue working on features.
 
-Release commit message format: `Release <version>`
+- ***Release***: Create a new branch with name format `Release_<update_name>`
+- **Bug fix**:   Commit using commit message format `Release_vn.n.n+1`
 
-When commiting a realse commit the verison varibles in `./vars/global_vars.sh` should be updated
+Checklist before release/bug fix
+- Update changelog section in README
+- Update branch in `how to play` section of README.md
+- Make sure version number is correctly set in `./vars/global_vars.sh`
 
+The `main` branch should pull in changes from the latest release branch but release branches should NEVER pull in changes from main
 
 ## Project walkthrough
 
