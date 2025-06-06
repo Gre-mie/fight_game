@@ -6,7 +6,7 @@
 
 
 # game variables 
-game_version="v0.1.1"
+game_version="v0.1.2"
 working_on="Graphics Update"
 update="Battle Update" # this is here mostly to remind myself to think about what a feature is
 release_branch_name="Release_Battle_update"

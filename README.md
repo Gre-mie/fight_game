@@ -6,7 +6,7 @@ Pick options to battle enemies until all enemies are defeated or the player heal
 
 ## How to play
 
-Pull down and switch to the latest release branch, currently: `Release_Battle_update`
+Switch to the latest release branch, currently: `Release_Battle_update`
 
 Right now the current release has no graphics and is best played inside an IDE.<br/>
 The terminal will take input and show minimal information. If using an IDE the `game.log` file will give more information (the `game.log` file is generated after `main.sh` is exicuted).
@@ -49,3 +49,4 @@ You can check exicute permissions with `ls -l`<br>
 - Move Releases to their own branch
 - Remove `setup.sh`
 - Update version log when exicuting the game
+- Update README
