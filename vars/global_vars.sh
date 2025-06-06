@@ -6,7 +6,8 @@
 
 
 # game variables 
-game_version="v0.1.0"
+game_version="v0.1.1"
+working_on="Graphics Update"
 update="Battle Update" # this is here mostly to remind myself to think about what a feature is
 
 # log version and last feature update
