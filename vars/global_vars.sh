@@ -9,9 +9,14 @@
 game_version="v0.1.1"
 working_on="Graphics Update"
 update="Battle Update" # this is here mostly to remind myself to think about what a feature is
+release_branch_name="Release_Battle_update"
 
-# log version and last feature update
-log "INFO: update: ${game_version} ${update}"
+# log version determined by the branch
+if [[ $(git rev-parse --abbrev-ref HEAD) == $release_branch_name ]]; then
+    log "INFO: update: ${game_version} ${update}"
+else
+    log "INFO: update: ${game_version} ${working_on}"
+fi
 
 game_score=0
 
