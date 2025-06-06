@@ -24,10 +24,8 @@ fi
 
 
 # game variables 
-game_version="v0.1.1"
-working_on="Graphics Update"
-update="Battle Update" # this is here mostly to remind myself to think about what a feature is
-release_branch_name="Release_Battle_update"
+game_version="v0.2.0"
+update="Graphics Update" # this is here mostly to remind myself to think about what a feature is
 
 # log version determined by the branch
 if [[ $(git rev-parse --abbrev-ref HEAD) == $release_branch_name ]]; then
