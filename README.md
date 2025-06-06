@@ -48,3 +48,4 @@ You can check exicute permissions with `ls -l`<br>
 - Fix missing file
 - Move Releases to their own branch
 - Remove `setup.sh`
+- Update version log when exicuting the game
