@@ -23,7 +23,7 @@ gamescreen_min_height=23     # lines
 
 
 # game variables 
-game_version="v0.1.1"
+game_version="v0.2.0"
 working_on="Graphics Update"
 update="Battle Update" # this is here mostly to remind myself to think about what a feature is
 
