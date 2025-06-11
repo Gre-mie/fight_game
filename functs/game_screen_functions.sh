@@ -9,7 +9,17 @@
 
 
 # prints text starting from col, line
+display_text() { # args: line col text
+    if [[ $# -lt 3 ]]; then
+        log "ERROR: not enough arguments for display_text"
+        printf "\033[33mERROR:\033[39m $# arguments given, display_text(line, col, text)\n"
+        exit 1
+    fi
+    
+    printf "\033[%d;%dH" "$1" "$2"
+    printf "$3"
 
+}
 
 # prints a horizontal line
 horizontal_line() { # args: line start_col num_of_chars
@@ -62,8 +72,14 @@ print_border() {
     vertical_line 1 2 $gamescreen_min_height
     vertical_line 38 13 19
     vertical_line 59 2 $gamescreen_min_height
-    
 
+    # print text starting at: line x, column x
+    display_text 2 3 "Rooms"
+    local calc_area_from_end=$((${#game_version} + 1))
+    local calc_char_position=$(($gamescreen_min_width - $calc_area_from_end))
+    display_text 2 $calc_char_position "${game_version}"
+    display_text 13 3 "Battle Log"
+    display_text 13 40 "Player Stats "
 
 
 
