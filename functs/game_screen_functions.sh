@@ -28,6 +28,19 @@ horizontal_line() { # args: line start_col num_of_chars
 
 
 # prints a vertical line
+vertical_line() { # args: column start_line num_of_chars
+    if [[ $# -lt 3 ]]; then
+        log "ERROR: not enough arguments for vertical_line"
+        printf "\033[33mERROR:\033[39m $# arguments given, vertical_line(column, start_line, num_of_chars)\n"
+        exit 1
+    fi
+
+    for ((i=$2; i <= $3; i++)); do
+        printf "\033[%d;%dH" "$i" "$1"
+        printf "|"
+    done
+
+}
 
 
 # prints the starting border for the game UI
@@ -45,11 +58,15 @@ print_border() {
     horizontal_line 19 1 $gamescreen_min_width
     horizontal_line 23 1 $gamescreen_min_width
 
-    printf "\033[H"
+    # print vertical lines: on column x, from line x, line len x chars
+    vertical_line 1 2 $gamescreen_min_height
+    vertical_line 38 13 19
+    vertical_line 59 2 $gamescreen_min_height
+    
 
 
 
 
 
-
+    # TODO: show curser
 }
