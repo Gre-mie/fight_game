@@ -10,7 +10,7 @@
             # returns a number from 0-((int-1))
 get_input() {
     local input
-    local x_marker="\033[31mX \033[39m"
+    local x_marker="\033[31mX\033[39m"
 
     # checks for correct number arguments
     local error_message="ERROR: incorrect arguemnts, get_input int ['string']"
@@ -57,7 +57,8 @@ get_input() {
     while [[ ! "$input" =~ ^[0-9]+$ || "$input" -lt 0 || "$input" -ge ${1} ]]; do
         log "WARNING: Invalid input '${input}', requires int 0-${1}"
         # >&2 is used to force the print to happen imediatly instead of waiting for the output stream buffer to be full
-        printf "${x_marker} Invalid input, not 0-${max_option}\n$ " >&2 
+        # moves the curser to print error then back to reprint instruction
+        printf "\033[21;3H${x_marker} Invalid input, not 0-${max_option}\033[22;3HEnter an option: " >&2 # TODO: clear input area before printing
         read input
     done
 

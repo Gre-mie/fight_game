@@ -1,6 +1,19 @@
 # A place to put global variables that can be loaded during setup
 # do NOT add variables directly related to the game loop
 
+# version variables
+game_version="v0.2.0"
+working_on="Graphics Update"
+update="Battle Update" # this is here mostly to remind myself to think about what a feature is
+
+# log version determined by the branch
+if [[ $(git rev-parse --abbrev-ref HEAD) == $release_branch_name ]]; then
+    log "INFO: update: ${game_version} ${update}"
+else
+    log "INFO: update: ${game_version} ${working_on}"
+fi
+
+
 # window/terminal variables
 gamescreen_min_width=59      # cols
 gamescreen_min_height=23     # lines
@@ -23,17 +36,7 @@ gamescreen_min_height=23     # lines
 
 
 # game variables 
-game_version="v0.2.0"
-working_on="Graphics Update"
-update="Battle Update" # this is here mostly to remind myself to think about what a feature is
-
-# log version determined by the branch
-if [[ $(git rev-parse --abbrev-ref HEAD) == $release_branch_name ]]; then
-    log "INFO: update: ${game_version} ${update}"
-else
-    log "INFO: update: ${game_version} ${working_on}"
-fi
-
+player_options_arr=("0: exit" "1: attack" "2: defend")
 game_score=0
 
 # initialse level/room vars

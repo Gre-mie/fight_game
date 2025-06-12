@@ -15,6 +15,8 @@ game_battle() {
     
     # run animations function to run animaitons. order to run determined by player/enemy options
 
+    # most if not all logs in this file should also be printed to the screen logs area
+
     # battle logic
     if [[ ${player_option} -eq 1 ]]; then
         log "INFO: ${player_name} attacks ${enemy_type}"
