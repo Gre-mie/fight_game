@@ -21,6 +21,7 @@ display_text() { # args: line col text
 
 }
 
+
 # prints a horizontal line
 horizontal_line() { # args: line start_col num_of_chars
     if [[ $# -lt 3 ]]; then
@@ -80,6 +81,24 @@ print_border() {
     display_text 2 $calc_char_position "${game_version}"
     display_text 13 3 "Battle Log"
     display_text 13 40 "Player Stats "
+    
+    # print options in options area from an array
+    # print zero option
+    display_text 20 3 "Options:"
+    local calc_area_from_end=$((${#player_options_arr[0]} + 1))
+    local calc_char_position=$(($gamescreen_min_width - $calc_area_from_end))
+    display_text 20 $calc_char_position "${player_options_arr[0]}"
+
+    # print all other options
+    # use two spaces between options to make it easier to read
+    local print_at_col=13
+    for ((i=1; i < ${#player_options_arr[@]}; i++)); do
+        display_text 20 $print_at_col "${player_options_arr[$i]}"
+        print_at_col=$(($print_at_col + ${#player_options_arr[$i]}))
+        print_at_col=$(($print_at_col + 2))
+    done
+
+
 
 
 

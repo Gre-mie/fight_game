@@ -29,13 +29,9 @@ fi
 running=true
 frame=1
 while [[ $running == true ]]; do
-
-log "------------------------------------------ frame: $frame" # <<< temp code to make it easier to read logs
-
 # Prints the game border
 clear
 print_border
-#exit 3 # temp code
 
 # room and enemy loading logic
 # loads the next level if current_room is empty and max_levels hasn't been suppassed
@@ -60,13 +56,7 @@ if [[ $enemy_health -le 0 ]]; then
     game_score=$((game_score + enemy_score))
 fi
 
-# temp vvv
-# printf "${player_name} health: $player_health\t\t\t${enemy_type} health: $enemy_health\n\n" # print screen funciton called here
-#max_levels=2
-# temp ^^^
-
 # get user input for option
-player_options_arr=("0: exit" "1: attack" "2: defend")
 printf "\033[22;3H"  # move curser to input area
 printf "Enter an option: "
 player_option=$(get_input ${#player_options_arr[@]})
@@ -94,7 +84,6 @@ if [[ $enemy_health -lt 1 ]]; then
     printf "${enemy_type} was slain\n\n" # <<< temp code
 fi
 
-#draw
 ((frame++))
 done
 
