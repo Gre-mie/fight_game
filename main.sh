@@ -24,6 +24,9 @@ else
     log "INFO: player name was set to: $player_name"
 fi
 
+# set terminal to game_col_default
+# Only the gameloop has the default colour
+printf "${game_text_default}"
 
 # Game loop
 running=true
