@@ -50,3 +50,6 @@ enemy_type=""
 enemy_health=0
 enemy_defence=0
 enemy_power=0
+
+# results of often used calculations
+boarder_end=$(($gamescreen_min_width - 2))

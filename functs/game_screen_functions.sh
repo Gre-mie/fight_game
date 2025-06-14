@@ -12,9 +12,6 @@ display_clear_area() { # args: x1 y1 x2 y2
     local current_x=$1
     local current_y=$2
 
-    printf "start x: $current_x  y: $current_y\n"
-    printf "end x: $3  y: $4\n"
-
     while [[ $current_y -le $4 ]]; do
         printf "\033[%d;%dH" "$current_y" "$current_x"
         while [[ $current_x -le $3 ]]; do

@@ -57,8 +57,9 @@ get_input() {
     while [[ ! "$input" =~ ^[0-9]+$ || "$input" -lt 0 || "$input" -ge ${1} ]]; do
         log "WARNING: Invalid input '${input}', requires int 0-${1}"
         # >&2 is used to force the print to happen imediatly instead of waiting for the output stream buffer to be full
-        # moves the curser to print error then back to reprint instruction
-        printf "\033[21;3H${x_marker} Invalid input, not 0-${max_option}\033[22;3HEnter an option: " >&2 # TODO: clear input area before printing
+        # clears the area, moves the curser to print error then back to reprint instruction
+        display_clear_area 3 22 $boarder_end 22 >&2
+        printf "\033[21;3H${x_marker} Invalid input, not 0-${max_option}\033[22;3HEnter an option: " >&2
         read input
     done
 
