@@ -6,6 +6,27 @@
 
 
 # clears an area
+# x1 y1 = top left corner of area
+# x2 y2 = bottom right corner of area inclusive
+display_clear_area() { # args: x1 y1 x2 y2
+    local current_x=$1
+    local current_y=$2
+
+    printf "start x: $current_x  y: $current_y\n"
+    printf "end x: $3  y: $4\n"
+
+    while [[ $current_y -le $4 ]]; do
+        printf "\033[%d;%dH" "$current_y" "$current_x"
+        while [[ $current_x -le $3 ]]; do
+            printf " "
+            ((current_x++))
+        done
+        current_x=$1
+        ((current_y++))
+        printf "\n"
+    done
+
+}
 
 
 # prints text starting from col, line
@@ -98,10 +119,6 @@ print_border() {
         print_at_col=$(($print_at_col + 2))
     done
 
-
-
-
-
-
+    
     # TODO: show curser
 }
