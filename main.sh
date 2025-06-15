@@ -55,7 +55,8 @@ fi
 if [[ $enemy_health -le 0 ]]; then
     enemy_path="${current_room[$current_enemy]}"
     source "$enemy_path"
-    ((current_enemy++))
+    ((current_enemy++)) # current enemy becomes the next enenmy in the room list
+    enemy_col=$(set_enemy_colour) # sets enemy colour
     game_score=$((game_score + enemy_score))
 fi
 
