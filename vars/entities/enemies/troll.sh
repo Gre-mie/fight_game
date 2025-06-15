@@ -9,4 +9,6 @@ enemy_power=10
 
 enemy_score=4
 
+enemy_colours=("${game_text_yellow}" "${game_text_purple}" "${game_text_pink}" "${game_text_yellow}" "${game_text_blue}")
+
 log "INFO: ${enemy_type} loaded"

@@ -7,6 +7,13 @@ draw() {
     sleep 0.25
 }
 
+# set enemy colour to a random colour from the enemy_colours variable in entity file
+set_enemy_colour() { # returns a string
+    local rand_item=$(($RANDOM % ${#enemy_colours[@]}))
+    echo "${enemy_colours[$rand_item]}"
+}
+
+
 # logic to simulate a battle between player and current enemy
 # changes global player/enemy variables according to player/enemy options
     # option 1 = attack (player and enemy)

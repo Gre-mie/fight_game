@@ -12,4 +12,6 @@ enemy_power=
 
 enemy_score=
 
+enemy_colours=("")
+
 log "INFO: ${enemy_type} loaded"
