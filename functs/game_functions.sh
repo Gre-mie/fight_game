@@ -1,10 +1,23 @@
 # contains functions for game logic and formatting
 
+. ./functs/game_screen_functions.sh
+
 # Draws to the screen
 draw() {
-    clear
-    printf "frame: ${frame}\n"
-    sleep 0.25
+    # TODO: hide curser
+    printf "\033[2J"                # clear screen
+    printf "\033[H"                 # move curser to home 0.0
+
+    print_border
+    print_room_area
+    print_animation_area
+    print_stats_area
+    print_options_area
+
+
+
+
+        # TODO: show curser
 }
 
 # set enemy colour to a random colour from the enemy_colours variable in entity file
