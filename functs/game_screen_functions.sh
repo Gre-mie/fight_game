@@ -79,7 +79,6 @@ print_border() {
 # updates and prints areas to the terminal
 # print text starting at: line x, column x
 
-# rooms area
 print_room_area() {
     display_text 2 3 "Rooms"
     local calc_area_from_end=$((${#game_version} + 1))
