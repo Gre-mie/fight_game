@@ -21,8 +21,8 @@ game_text_light_blue="\033[0;40;94m"
 # Error and debug colours 
 # text colour only, does not ser/reset anything else
 err_x_col=""
-err_highlight_col=""
-err_text_col=""
+err_highlight_col="\033[33m"
+err_text_col="\033[39m"
 
 
 # text apperance

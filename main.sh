@@ -34,7 +34,7 @@ frame=1
 while [[ $running == true ]]; do
 # Prints the game border
 clear
-print_border
+draw
 
 # room and enemy loading logic
 # loads the next level if current_room is empty and max_levels hasn't been suppassed
