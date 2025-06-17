@@ -1,6 +1,7 @@
 # contains functions for game logic and formatting
 
-. ./functs/game_screen_functions.sh
+# this needs to be loaded due to it appearing before game_screen_funcitons.sh in main
+. ./functs/game_screen_functions.sh 
 
 # Draws to the screen
 draw() {

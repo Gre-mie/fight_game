@@ -102,6 +102,13 @@ print_animation_area() {
 
 print_stats_area() {
     display_text 13 40 "Player Stats "
+    local stat_num_print_position=$(($gamescreen_min_width - 5))
+    display_text 15 40 "Health"
+    display_text 15 $stat_num_print_position "$player_health" # TODO: change colour of health determined by percentage of player_max_health
+    display_text 16 40 "Defence"
+    display_text 16 $stat_num_print_position "$player_defence"
+    display_text 17 40 "Power"
+    display_text 17 $stat_num_print_position "$player_power"
 }
 
 print_options_area() {
