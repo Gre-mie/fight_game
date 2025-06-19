@@ -15,6 +15,28 @@ log "INFO: loading global variables"
 . ./vars/global_vars.sh
 . ./vars/entities/player.sh
 
+# log version determined by the branch
+if [[ $(git rev-parse --abbrev-ref HEAD) == $release_branch_name ]]; then
+    log "INFO: update: ${game_version} ${update}"
+else
+    log "INFO: update: ${game_version} ${working_on}"
+fi
+ # exits if the terminal is too small
+ log "INFO: checking terminal size"
+ terminal_width=$(tput cols)
+ if [[ $terminal_width -lt $gamescreen_min_width ]]; then
+     log "ERROR: terminal width to small: $terminal_width, min width = $gamescreen_min_width"
+     printf "\033[33mERROR:\033[39m terminal width to small: $terminal_width, min width = $gamescreen_min_width\n"
+     exit 1
+ fi
+ terminal_height=$(tput lines)
+ if [[ $terminal_height -lt $gamescreen_min_height ]]; then
+     log "ERROR: terminal height to small: $terminal_height, min height = $gamescreen_min_height"
+     printf "\033[33mERROR:\033[39m terminal height to small: $terminal_height, min height = $gamescreen_min_height\n"
+     exit 1
+ fi
+
+
 # reset player charactor name
 printf "Enter your name: "
 player_name=$(get_input 20 string)
