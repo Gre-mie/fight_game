@@ -5,10 +5,9 @@
 # Types of message status
     # INFO:
     # ERROR:
-
+    # WARNING:
 date_time=$(date "+%Y-%m-%d %H:%M:%S\t")
 printf "${date_time}INFO: game.log cleared\n" > game.log
-
 
 log() { # args: string -> void
     date_time=$(date "+%Y-%m-%d %H:%M:%S\t")
@@ -22,7 +21,7 @@ is_path() { # args: string -> status code
         return 0
     else
         log "ERROR: $1 not found"
-        printf "\033[33mError: \033[39m$1 not found\n" >&2
+        printf "${err_msg_seg} $1 not found${reset_msg_seg}" >&2
         exit 1
     fi
 }

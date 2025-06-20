@@ -10,15 +10,12 @@
             # returns a number from 0-((int-1))
 get_input() {
     local input
-    local x_marker="\033[31mX\033[39m"
-
+    local error_message="${err_msg_seg} incorrect arguemnts, get_input int ['string']${reset_msg_seg}"
     # checks for correct number arguments
-    local error_message="ERROR: incorrect arguemnts, get_input int ['string']"
     if [[ $# -lt 1 || $# -gt 2 ]]; then
         echo "$error_message" >&2
         return 1
     fi
-
     # check first arg is an int
     if ! [[ $1 =~ ^[0-9]+$ ]]; then
         echo "$error_message" >&2
@@ -28,7 +25,6 @@ get_input() {
     # check for second arg and if exists check is valid argument
     if [[ $# == 2 ]]; then
         if [[ $2 =~ "string" ]]; then
-
             read -n ${1} input
             # continually asks user for input until a valid string is given 
                 # automatically returns when it reaches $1 chars read
@@ -36,8 +32,7 @@ get_input() {
                 # unable to get space matching to work
             while ! [[ "$input" =~ ^[a-zA-Z]+$ ]]; do
                 log "WARNING: Invalid input '${input}', requires string a-z A-Z"
-                # >&2 is used to force the print to happen imediatly instead of waiting for the output stream buffer to be full
-                printf "${x_marker} Invalid input, not a-Z\n$ " >&2 
+                printf "${err_x_msg_seg} Invalid input, not a-Z${reset_msg_seg}Enter your name: " >&2 
                 read -n ${1} input
             done
             echo "${input}"
@@ -59,7 +54,7 @@ get_input() {
         # >&2 is used to force the print to happen imediatly instead of waiting for the output stream buffer to be full
         # clears the area, moves the curser to print error then back to reprint instruction
         display_clear_area 3 22 $boarder_end 22 >&2
-        printf "\033[21;3H${x_marker} Invalid input, not 0-${max_option}\033[22;3HEnter an option: " >&2
+        printf "\033[21;3H${err_x_msg_seg} Invalid input, not 0-${max_option}\033[22;3H${game_text_default}Enter an option: " >&2
         read input
     done
 

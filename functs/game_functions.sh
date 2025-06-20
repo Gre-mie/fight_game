@@ -14,11 +14,7 @@ draw() {
     print_animation_area
     print_stats_area
     print_options_area
-
-
-
-
-        # TODO: show curser
+    # TODO: show curser
 }
 
 # set enemy colour to a random colour from the enemy_colours variable in entity file

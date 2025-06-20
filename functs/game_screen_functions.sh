@@ -12,7 +12,6 @@ display_clear_area() { # args: x1 y1 x2 y2
     local current_x=$1
     local current_y=$2
     while [[ $current_y -le $4 ]]; do
-        printf "\033[%d;%dH" "$current_y" "$current_x"
         while [[ $current_x -le $3 ]]; do
             printf " "
             ((current_x++))
@@ -27,7 +26,7 @@ display_clear_area() { # args: x1 y1 x2 y2
 display_text() { # args: line col text
     if [[ $# -lt 3 ]]; then
         log "ERROR: not enough arguments for display_text"
-        printf "\033[33mERROR:\033[39m $# arguments given, display_text(line, col, text)\n"
+        printf "${err_msg_seg} $# arguments given, display_text(line, col, text)${reset_msg_seg}"
         exit 1
     fi
     printf "\033[%d;%dH" "$1" "$2"
@@ -38,7 +37,7 @@ display_text() { # args: line col text
 horizontal_line() { # args: line start_col num_of_chars
     if [[ $# -lt 3 ]]; then
         log "ERROR: not enough arguments for horizontal_line"
-        printf "\033[33mERROR:\033[39m $# arguments given, horizontal_line(line, start_col, num_of_chars)\n"
+        printf "${err_msg_seg} $# arguments given, horizontal_line(line, start_col, num_of_chars)${reset_msg_seg}"
         exit 1
     fi
     printf "\033[%d;%dH" "$1" "$2"
@@ -51,7 +50,7 @@ horizontal_line() { # args: line start_col num_of_chars
 vertical_line() { # args: column start_line num_of_chars
     if [[ $# -lt 3 ]]; then
         log "ERROR: not enough arguments for vertical_line"
-        printf "\033[33mERROR:\033[39m $# arguments given, vertical_line(column, start_line, num_of_chars)\n"
+        printf "${err_msg_seg} $# arguments given, vertical_line(column, start_line, num_of_chars)${reset_msg_seg}"
         exit 1
     fi
     for ((i=$2; i <= $3; i++)); do
