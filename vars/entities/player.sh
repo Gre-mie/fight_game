@@ -1,7 +1,8 @@
 # set initial player charactor variables
 
 player_name="" # default name will be set in main.sh
-player_health=100
+player_max_health=100
+player_health=$player_max_health
 player_defence=5
 player_power=10
 
