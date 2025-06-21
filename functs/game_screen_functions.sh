@@ -102,7 +102,18 @@ print_stats_area() {
     display_text 13 40 "Player Stats "
     local stat_num_print_position=$(($gamescreen_min_width - 5))
     display_text 15 40 "Health"
-    display_text 15 $stat_num_print_position "$player_health" # TODO: change colour of health determined by percentage of player_max_health
+
+    # colours the player health based on the percentage of player_max_health
+    local coloured_health="$player_health"
+    if [[ $player_health -lt $(($player_max_health / 4)) ]]; then
+        coloured_health="${game_text_red}$player_health${game_text_default}"
+    elif [[ $player_health -lt $(($player_max_health / 2)) ]]; then
+        coloured_health="${game_text_yellow}$player_health${game_text_default}"
+    else 
+        coloured_health="${game_text_green}$player_health${game_text_default}"
+    fi
+    display_text 15 $stat_num_print_position "$coloured_health"
+    
     display_text 16 40 "Defence"
     display_text 16 $stat_num_print_position "$player_defence"
     display_text 17 40 "Power"
