@@ -22,6 +22,21 @@ display_clear_area() { # args: x1 y1 x2 y2
     done
 }
 
+# prints centered text within a horizontal area
+center_text() { # args: collumn_start collumn_end text
+    if [[ $# -lt 3 ]]; then
+        printf "${err_msg_seg} not enough args: center_text(collumn_start collumn_end text)${reset_msg_seg}"
+        exit 1
+    fi
+    collumn_start=$1
+    collumn_end=$2
+    text=$3
+    center=$(($(($collumn_end + $collumn_start)) / 2))
+    half_text=$((${#text} / 2))
+    position=$(($center - $half_text))
+    printf "\033[%dG${text}" "$position"
+}
+
 # prints text starting from col, line
 display_text() { # args: line col text
     if [[ $# -lt 3 ]]; then
