@@ -60,9 +60,8 @@ printf "${game_text_default}"
 running=true
 frame=1
 while [[ $running == true ]]; do
-# Prints the game border
+
 clear
-draw
 
 # room and enemy loading logic
 # loads the next level if current_room is empty and max_levels hasn't been suppassed
@@ -88,6 +87,8 @@ if [[ $enemy_health -le 0 ]]; then
     enemy_col=$(set_enemy_colour) # sets enemy colour
     game_score=$((game_score + enemy_score))
 fi
+
+draw
 
 # get user input for option
 printf "\033[22;3H"  # move curser to input area
