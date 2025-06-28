@@ -41,7 +41,7 @@ center_text() { # args: collumn_start collumn_end text
 display_text() { # args: line col text
     if [[ $# -lt 3 ]]; then
         log "ERROR: not enough arguments for display_text"
-        printf "${err_msg_seg} $# arguments given, display_text(line, col, text)${reset_msg_seg}"
+        printf "${err_msg_seg} $# arguments given, display_text($1, $2, $3)${reset_msg_seg}"
         exit 1
     fi
     printf "\033[%d;%dH" "$1" "$2"
@@ -111,6 +111,9 @@ print_animation_area() {
                                             # compare with the area left
                                             # change possible max len of name according to area left
                                             # possibly center the name
+    # print coloured enemy name
+    local start_num_print_position=$(($(($gamescreen_min_width-1))-${#enemy_type}))
+    display_text 8 $start_num_print_position "${enemy_col}$enemy_type${game_text_default}"
 }
 
 print_stats_area() {
